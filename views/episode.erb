@@ -1,0 +1,5 @@
+<%= @episode.title %><br />
+<% @episode.hash.each do |name,value| %>
+<strong><%= name %></strong> <%= value %><br />
+<% end %>
+<%= @episode.body %>
