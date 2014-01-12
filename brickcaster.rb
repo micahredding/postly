@@ -77,6 +77,9 @@ class Podcast < Schema
       Episode.get(@podcast_id, episode_number)
     end
   end
+  def self.filename(id)
+    'data/podcasts/' + id + '.json'
+  end
 end
 
 class Episode < Schema
@@ -84,7 +87,7 @@ class Episode < Schema
   :media_length, :media_size, :media_title, :media_artist, :media_album, :media_year, :media_track
 
   def self.get podcast_id, episode_number
-  	super podcast_id + '_' + self.file_number(episode_number)
+  	'data/episodes/' + podcast_id + '/' + podcast_id + '_' + self.file_number(episode_number)
   end
 
   def self.file_number episode_number
@@ -96,7 +99,15 @@ class Episode < Schema
   end
 
   def body
-  	@body_html ||= markdown.render(File.read('data/' + @body))
+    if @body_html.nil?
+      if @body.nil?
+        @body = @summary
+        @body_html = @body
+      else
+      	@body_html = markdown.render(File.read('data/episodes/' + @podcast_id + '/' + @podcast_id + '_' + @episode_number))
+      end
+    end
+    @body_html
   end
 
   def body_truncate
