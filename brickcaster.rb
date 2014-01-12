@@ -104,7 +104,7 @@ class Episode < Schema
         @body = @summary
         @body_html = @body
       else
-      	@body_html = markdown.render(File.read('data/episodes/' + @podcast_id + '/' + @podcast_id + '_' + @episode_number))
+      	@body_html = markdown.render(File.read('data/episodes/' + @podcast_id + '/' + @podcast_id + '_' + self.file_number(@episode_number)))
       end
     end
     @body_html
