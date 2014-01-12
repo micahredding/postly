@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin:0;
+  padding:0;
+}
+
+a {
+  color: #0071B3;
+  &:hover, &:focus {
+    color: #018fe2;
+  }
+}
+
+header {
+  background: #000000;
+  font-size: 0.9em;
+  @include media($desktop) {
+    font-size: 1em;
+  }
+  a, span {
+    color: #ffffff;
+  }
+  span.notice, span.alert {
+    display: inline-block;
+    padding:10px 20px;
+  }
+  span.site-name, span.connect {
+    display: inline-block;
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-block;
+      padding:10px 20px;
+      &:hover {
+        color: #018fe2;
+      }
+    }
+  }
+  span.connect {
+    @include media($desktop) {
+      float: right;
+    }
+  }
+}
+
+/* Override scaffolding settings for admin, then re-override them for normal use */
+body .page {
+  margin:0px auto;
+  max-width: 800px;
+}
+// body.application .page {
+//   max-width: 100%;
+// }
+/* end override */
+
+.back-link {
+  padding:0px;
+
+  a, a:link {
+    text-decoration: none;
+    padding:10px 20px;
+    display: block;
+    color:#000000;
+    &.white {
+      color: #ffffff;
+    }
+  }
+
+}
+
+.header-art {
+  position: relative;
+  padding: 0;
+  img {
+    width: 100%;
+  }
+  .back-link {
+    position: absolute;
+    top:0;
+  }
+}
+
+.page-title {
+  @include page-title;
+}
+
+$padding:20px;
+.footer-links {
+  background: #111111;
+  a, a:visited {
+    color:#eee;
+    display: block;
+    font-size: 1em;
+    line-height: 1.5em;
+    padding:($padding / 2) $padding;
+    &:hover {
+      background: #ffffff;
+      text-decoration: none;
+      color: #000000;
+    }
+  }
+  p {
+    margin:0 0;
+  }
+  .fb-like {
+    padding: $padding;
+  }
+  .twitter-like {
+    margin:1em;
+    @include media($desktop) {
+      margin:1em -1em 1em 1em;
+    }
+  }
+  .footer-links-inner {
+    margin:0 auto;
+    padding: $padding 0;
+    max-width: 800px;
+    text-align: right;
+    @include media($desktop) {
+      padding:0 0;
+    }
+  }
+}
+.footer-links {
+  @include media($desktop) {
+    position: fixed;
+    top:2.9em;
+    right:0;
+    background:none;
+    a, a:visited {
+      background:none;
+      text-align: right;
+      color: #000000;
+      text-shadow: 0px 0px 16px #ffffff;
+      &:hover {
+        color: #000000;
+        text-shadow: none;
+      }
+    }
+  }
+}
+
+

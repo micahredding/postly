@@ -1,4 +1,21 @@
-<%= @podcast.title %><br />
-<% @podcast.hash.each do |name,value| %>
-<strong><%= name %></strong> <%= value %><br />
-<% end %>
+<div class="podcast-wrapper">
+
+  <h1 class="podcast-title">
+    <%= @podcast.title %>
+  </h1>
+
+  <div class="podcast-body">
+    <%= @podcast.description %>
+  </div>
+
+	<a href="<%= @podcast.itunes_url %>">Subscribe in iTunes</a><br />
+	<a href="<%= @podcast.rss_url %>">Subscribe in RSS</a><br />
+	<% @podcast.links.each do |text, href| %>
+  <a href="<%= href %>"><%= text %></a>
+  <% end %>
+
+  <div class="podcast-episodes">
+    <%= erb :_episodes %>
+  </div>
+
+</div>

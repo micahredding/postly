@@ -57,10 +57,15 @@ class Schema
 end
 
 class Podcast < Schema
-	attr_accessor :title, :podcast_id, :author, :url, :itunes_url, :rss_url, :keywords, :categories, :description, :episodes
+	attr_accessor :title, :podcast_id, :author, :url, :itunes_url, :rss_url, :keywords, :categories, :description, :links
 	def art_url key="normal"
 		@art_url[key]
 	end
+  def episodes
+    @episodes.collect! do |episode_number|
+      Episode.get(@podcast_id, episode_number)
+    end
+  end
 end
 
 class Episode < Schema
@@ -91,6 +96,7 @@ end
 helpers BrickcasterHelpers
 
 get '/:podcast_id/:episode_number' do
+  @podcast = Podcast.get(params[:podcast_id])
 	@episode = Episode.get(params[:podcast_id], params[:episode_number])
 	return erb :error if @episode.nil?
 	erb :episode

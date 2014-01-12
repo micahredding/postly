@@ -1,0 +1,59 @@
+// Place all the styles related to the episodes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.episode-title {
+  @include page-title;
+}
+
+$padding: 20px;
+
+.episode-wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 800px;
+  margin:0 auto;
+
+  .episode-topbar {
+    text-align: center;
+    padding:$padding;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    @media(min-width:800px) {
+      padding:($padding * 2) $padding;
+    }
+  }
+
+  .episode-title {
+    padding: 0 $padding;
+    margin: $padding 0;
+    @media(min-width:800px) {
+      margin:0 auto;
+    }
+  }
+
+  .episode-body {
+    font-size: 1.7em;
+    line-height: 1.5em;
+    margin:$padding;
+    p, ul, li {
+      font-size: 1em;
+      line-height: 1.3em;
+    }
+    ul {
+      padding-left: 1em;
+      li {
+        list-style-type: disc;
+        margin:0.3em 0;
+      }
+    }
+    a {
+     color: #0071B3;
+      &:hover, &:focus {
+        color: #018fe2;
+      }
+    }
+  }
+}

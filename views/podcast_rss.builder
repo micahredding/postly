@@ -40,8 +40,7 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
     episodes = @podcast.episodes
     episodes.reverse!
 
-    episodes.each do |episode_number|
-      episode = Episode.get(@podcast.podcast_id, episode_number)
+    episodes.each do |episode|
       xml.item do
         # id
         xml.guid episode.url

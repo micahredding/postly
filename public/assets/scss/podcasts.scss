@@ -1,0 +1,128 @@
+// Place all the styles related to the podcasts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.podcast-title {
+  @include page-title;
+}
+
+.podcast-index-wrapper {
+  @include outer-container;
+  max-width: 800px;
+  margin-top:2em;
+}
+.podcast-teaser {
+  padding:0 2em;
+  margin-bottom: 2em;
+  @include clearfix;
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    margin:0em 1em 1em 0;
+    @include media($tablet) {
+      float:left;
+    }
+  }
+  .podcast-title {
+    a {
+      &, &:visited {
+        color: black;
+      }
+    }
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 50%;
+  }
+  .podcast-body {
+    display: block;
+    @media (max-width:480px) {
+      display: none;
+    }
+  }
+}
+
+
+
+$padding: 20px;
+
+.podcast-wrapper {
+  max-width: 800px;
+  margin:0 auto;
+
+  @media(min-width:800px) {
+    padding:0 0;
+  }
+
+  .podcast-topbar {
+    padding:0;
+    img {
+      // width: 100%;
+      height: auto;
+    }
+    display: none;
+    @media(min-width:800px) {
+      display: block;
+    }
+  }
+  .podcast-title {
+    padding: 0;
+    margin: $padding 0;
+    @media(min-width:800px) {
+      margin:$padding auto;
+    }
+  }
+  .podcast-body {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    margin:$padding 0;
+  }
+  .podcast-episodes {
+    margin: $padding 0;
+    .episode a {
+      display: block;
+      font-size: 1.5em;
+      line-height: 1em;
+      text-decoration: none;
+      // color: #0071B3;
+      color:#000000;
+
+      &:hover, &:focus {
+        color: #018fe2;
+        // background: #EEEEEE;
+      }
+
+      padding:$padding 0;
+    }
+  }
+}
+
+.podcast-links {
+  background: #111111;
+  a, a:visited {
+    color:#eee;
+    display: block;
+    font-size: 1em;
+    line-height: 1.5em;
+    padding:($padding / 2) $padding;
+    &:hover {
+      background: #ffffff;
+      text-decoration: none;
+      color: #000000;
+    }
+  }
+  .podcast-links-inner {
+    margin:0 auto;
+    padding: $padding 0;
+    max-width: 800px;
+  }
+}
+
+
+
+/* Misc */
+.podcast-sidebar {
+  float:left;
+  margin:0 30px 30px 0;
+  max-width: 220px;
+}

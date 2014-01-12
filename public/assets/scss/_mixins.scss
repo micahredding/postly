@@ -1,0 +1,23 @@
+@mixin page-title {
+  color: #000000;
+  font-size: 2em;
+  line-height: 1.2em;
+
+  @media(min-width:640px) {
+    font-size: 3em;
+  }
+  @media(min-width:800px) {
+    font-size: 3.7em;
+  }
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin-top:0;
+  margin-bottom: 0.5em;
+  a {
+    text-decoration: none;
+    &:hover {
+      background:none;
+      color: #000000;
+    }
+  }  
+}
