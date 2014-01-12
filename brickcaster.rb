@@ -12,6 +12,20 @@ module BrickcasterHelpers
       :space_after_headers => true
     )
   end
+  def format_length(length)
+    if length.nil?
+      return "00:00:00"
+    end
+    length = Time.at(length.to_i).utc.strftime("%H:%M:%S")
+  end
+  def format_date(date)
+    return 0 if date.nil?
+    Date.parse(date).rfc822
+  end
+  def format_date_human(date)
+    return 0 if date.nil?
+    Date.parse(date).strftime("%Y.%m.%d")
+  end
 end
 
 class Schema
@@ -43,12 +57,15 @@ class Schema
 end
 
 class Podcast < Schema
-	attr_accessor :title, :podcast_id, :url, :itunes_url, :rss_url, :description
+	attr_accessor :title, :podcast_id, :author, :url, :itunes_url, :rss_url, :keywords, :categories, :description, :episodes
+	def art_url key="normal"
+		@art_url[key]
+	end
 end
 
 class Episode < Schema
-  attr_accessor :episode_number, :title, :summary, :author, :media_url, :podcast_id, :publish_date
-  # :media_length, :media_size, :media_title, :media_artist, :media_album, :media_year, :media_track
+  attr_accessor :episode_number, :title, :summary, :author, :url, :media_url, :podcast_id, :publish_date,
+  :media_length, :media_size, :media_title, :media_artist, :media_album, :media_year, :media_track
 
   def self.get podcast_id, episode_number
   	super podcast_id + '_' + self.file_number(episode_number)
@@ -66,7 +83,12 @@ class Episode < Schema
   	@body_html ||= markdown.render(File.read('data/' + @body))
   end
 
+  def body_truncate
+    truncate(body, :length => 255, :separator => "\n")
+  end
 end
+
+helpers BrickcasterHelpers
 
 get '/:podcast_id/:episode_number' do
 	@episode = Episode.get(params[:podcast_id], params[:episode_number])
