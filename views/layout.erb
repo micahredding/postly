@@ -8,9 +8,9 @@
   <link href="https://plus.google.com/107355867909504468216" rel="publisher" />
   <link href="/assets/css/app.css" rel="stylesheet" />
   <script type="text/javascript" src="/assets/bower_components/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/assets/js/analytics.js"></script>
   <script type="text/javascript" src="/assets/js/audioplayer.min.js"></script>
   <script type="text/javascript" src="/assets/js/episodes.js"></script>
+  <script type="text/javascript" src="/assets/js/analytics.js"></script>
 </head>
 <body>
   <header>
@@ -24,7 +24,7 @@
     </span>
   </header>
   <div class="header-art">
-    <img src="<%= erb :_art %>" />
+    <%= erb :_art %>
     <div class="back-link">
       <%= erb :_back_link %>
     </div>

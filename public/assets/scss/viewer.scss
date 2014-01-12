@@ -5,6 +5,16 @@ body {
   margin:0;
   padding:0;
 }
+body .page {
+  @include media($tablet) {
+    margin:0px auto;
+    max-width: 800px;
+  }
+  margin:0 2em;
+}
+.page-title {
+  @include page-title;
+}
 
 a {
   color: #0071B3;
@@ -21,10 +31,6 @@ header {
   }
   a, span {
     color: #ffffff;
-  }
-  span.notice, span.alert {
-    display: inline-block;
-    padding:10px 20px;
   }
   span.site-name, span.connect {
     display: inline-block;
@@ -44,16 +50,6 @@ header {
     }
   }
 }
-
-/* Override scaffolding settings for admin, then re-override them for normal use */
-body .page {
-  margin:0px auto;
-  max-width: 800px;
-}
-// body.application .page {
-//   max-width: 100%;
-// }
-/* end override */
 
 .back-link {
   padding:0px;
@@ -80,10 +76,6 @@ body .page {
     position: absolute;
     top:0;
   }
-}
-
-.page-title {
-  @include page-title;
 }
 
 $padding:20px;

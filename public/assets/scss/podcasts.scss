@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.podcast-title {
-  @include page-title;
-}
 
 .podcast-index-wrapper {
   @include outer-container;
@@ -49,11 +46,9 @@ $padding: 20px;
 .podcast-wrapper {
   max-width: 800px;
   margin:0 auto;
-
   @media(min-width:800px) {
     padding:0 0;
   }
-
   .podcast-topbar {
     padding:0;
     img {
@@ -66,6 +61,7 @@ $padding: 20px;
     }
   }
   .podcast-title {
+    @include page-title;
     padding: 0;
     margin: $padding 0;
     @media(min-width:800px) {

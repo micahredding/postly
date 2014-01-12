@@ -56,6 +56,17 @@ class Schema
 
 end
 
+class Index < Schema
+  def self.get
+    super 'index'
+  end
+  def podcasts
+    @podcasts.collect! do |podcast_id|
+      Podcast.get(podcast_id)
+    end
+  end
+end
+
 class Podcast < Schema
 	attr_accessor :title, :podcast_id, :author, :url, :itunes_url, :rss_url, :keywords, :categories, :description, :links
 	def art_url key="normal"
@@ -118,4 +129,9 @@ get '/:podcast_id' do
 	@podcast = Podcast.get(params[:podcast_id]);
 	return erb :error if @podcast.nil?
 	erb :podcast
+end
+
+get '/' do
+  @index = Index.get
+  erb :index
 end

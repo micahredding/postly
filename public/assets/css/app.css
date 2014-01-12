@@ -261,59 +261,12 @@ body {
   margin: 0;
   padding: 0; }
 
-a {
-  color: #0071B3; }
-  a:hover, a:focus {
-    color: #018fe2; }
-
-header {
-  background: #000000;
-  font-size: 0.9em; }
-  @media screen and (min-width: 768px) {
-    header {
-      font-size: 1em; } }
-  header a, header span {
-    color: #ffffff; }
-  header span.notice, header span.alert {
-    display: inline-block;
-    padding: 10px 20px; }
-  header span.site-name, header span.connect {
-    display: inline-block; }
-    header span.site-name a, header span.connect a {
-      color: #ffffff;
-      text-decoration: none;
-      display: inline-block;
-      padding: 10px 20px; }
-      header span.site-name a:hover, header span.connect a:hover {
-        color: #018fe2; }
-  @media screen and (min-width: 768px) {
-    header span.connect {
-      float: right; } }
-
-/* Override scaffolding settings for admin, then re-override them for normal use */
 body .page {
-  margin: 0px auto;
-  max-width: 800px; }
-
-/* end override */
-.back-link {
-  padding: 0px; }
-  .back-link a, .back-link a:link {
-    text-decoration: none;
-    padding: 10px 20px;
-    display: block;
-    color: #000000; }
-    .back-link a.white, .back-link a:link.white {
-      color: #ffffff; }
-
-.header-art {
-  position: relative;
-  padding: 0; }
-  .header-art img {
-    width: 100%; }
-  .header-art .back-link {
-    position: absolute;
-    top: 0; }
+  margin: 0 2em; }
+  @media screen and (min-width: 480px) {
+    body .page {
+      margin: 0px auto;
+      max-width: 800px; } }
 
 .page-title {
   color: #000000;
@@ -334,6 +287,51 @@ body .page {
     .page-title a:hover {
       background: none;
       color: #000000; }
+
+a {
+  color: #0071B3; }
+  a:hover, a:focus {
+    color: #018fe2; }
+
+header {
+  background: #000000;
+  font-size: 0.9em; }
+  @media screen and (min-width: 768px) {
+    header {
+      font-size: 1em; } }
+  header a, header span {
+    color: #ffffff; }
+  header span.site-name, header span.connect {
+    display: inline-block; }
+    header span.site-name a, header span.connect a {
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px 20px; }
+      header span.site-name a:hover, header span.connect a:hover {
+        color: #018fe2; }
+  @media screen and (min-width: 768px) {
+    header span.connect {
+      float: right; } }
+
+.back-link {
+  padding: 0px; }
+  .back-link a, .back-link a:link {
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    color: #000000; }
+    .back-link a.white, .back-link a:link.white {
+      color: #ffffff; }
+
+.header-art {
+  position: relative;
+  padding: 0; }
+  .header-art img {
+    width: 100%; }
+  .header-art .back-link {
+    position: absolute;
+    top: 0; }
 
 .footer-links {
   background: #111111; }
@@ -379,26 +377,6 @@ body .page {
       .footer-links a:hover, .footer-links a:visited:hover {
         color: #000000;
         text-shadow: none; } }
-
-.podcast-title {
-  color: #000000;
-  font-size: 2em;
-  line-height: 1.2em;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 0.5em; }
-  @media (min-width: 640px) {
-    .podcast-title {
-      font-size: 3em; } }
-  @media (min-width: 800px) {
-    .podcast-title {
-      font-size: 3.7em; } }
-  .podcast-title a {
-    text-decoration: none; }
-    .podcast-title a:hover {
-      background: none;
-      color: #000000; }
 
 .podcast-index-wrapper {
   *zoom: 1;
@@ -456,8 +434,26 @@ body .page {
       .podcast-wrapper .podcast-topbar {
         display: block; } }
   .podcast-wrapper .podcast-title {
+    color: #000000;
+    font-size: 2em;
+    line-height: 1.2em;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0.5em;
     padding: 0;
     margin: 20px 0; }
+    @media (min-width: 640px) {
+      .podcast-wrapper .podcast-title {
+        font-size: 3em; } }
+    @media (min-width: 800px) {
+      .podcast-wrapper .podcast-title {
+        font-size: 3.7em; } }
+    .podcast-wrapper .podcast-title a {
+      text-decoration: none; }
+      .podcast-wrapper .podcast-title a:hover {
+        background: none;
+        color: #000000; }
     @media (min-width: 800px) {
       .podcast-wrapper .podcast-title {
         margin: 20px auto; } }
