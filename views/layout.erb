@@ -7,10 +7,6 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <link href="https://plus.google.com/107355867909504468216" rel="publisher" />
   <link href="/assets/css/app.css" rel="stylesheet" />
-  <script type="text/javascript" src="/assets/bower_components/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/assets/js/audioplayer.min.js"></script>
-  <script type="text/javascript" src="/assets/js/episodes.js"></script>
-  <script type="text/javascript" src="/assets/js/analytics.js"></script>
 </head>
 <body>
   <header>
@@ -42,13 +38,17 @@
   </div></div>
 
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=275866199116127";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  <script type="text/javascript" src="/assets/bower_components/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/audioplayer.min.js"></script>
+  <script type="text/javascript" src="/assets/js/episodes.js"></script>
+  <script type="text/javascript" src="/assets/js/analytics.js"></script>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=275866199116127";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
