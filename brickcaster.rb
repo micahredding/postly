@@ -116,26 +116,27 @@ helpers BrickcasterHelpers
 
 get '/:podcast_id/:episode_number' do
   @podcast = Podcast.get(params[:podcast_id])
+  redirect '/' if @podcast.nil?
 	@episode = Episode.get(params[:podcast_id], params[:episode_number])
-	return erb :error if @episode.nil?
+  redirect '/' if @episode.nil?
 	erb :episode
 end
 
 get '/:podcast_id.json' do
 	@podcast = Podcast.get(params[:podcast_id]);
-	return erb :error if @podcast.nil?
+  redirect '/' if @podcast.nil?
 	@podcast.json
 end
 
 get '/:podcast_id.rss' do
 	@podcast = Podcast.get(params[:podcast_id]);
-	return erb :error if @podcast.nil?
+  redirect '/' if @podcast.nil?
 	builder :podcast_rss
 end
 
 get '/:podcast_id' do
 	@podcast = Podcast.get(params[:podcast_id]);
-	return erb :error if @podcast.nil?
+  redirect '/' if @podcast.nil?
 	erb :podcast
 end
 
