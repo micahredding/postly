@@ -19,8 +19,9 @@ module BrickcasterHelpers
     length = Time.at(length.to_i).utc.strftime("%H:%M:%S")
   end
   def format_date(date)
+    puts DateTime.parse(date).rfc822
     return 0 if date.nil?
-    Date.parse(date).rfc822
+    DateTime.parse(date).rfc822
   end
   def format_date_human(date)
     return 0 if date.nil?
@@ -40,13 +41,9 @@ class Schema
     end
 	end
 
-	def self.filename(id)
-		'data/' + id + '.json'
-	end
-
-	def self.get id
+	def self.get filename
     begin
-	    File.open(self.filename(id), "r") do |f|
+	    File.open(filename, "r") do |f|
 	      self.new JSON.load( f )
 	    end
 	  rescue
@@ -58,10 +55,10 @@ end
 
 class Index < Schema
   def self.get
-    super 'index'
+    super 'data/index.json'
   end
   def podcasts
-    @podcasts.collect! do |podcast_id|
+    @podcasts.collect do |podcast_id|
       Podcast.get(podcast_id)
     end
   end
@@ -77,8 +74,8 @@ class Podcast < Schema
       Episode.get(@podcast_id, episode_number)
     end
   end
-  def self.filename(id)
-    'data/podcasts/' + id + '.json'
+  def self.get id
+    super 'data/podcasts/' + id + '.json'
   end
 end
 
@@ -87,7 +84,11 @@ class Episode < Schema
   :media_length, :media_size, :media_title, :media_artist, :media_album, :media_year, :media_track
 
   def self.get podcast_id, episode_number
-  	'data/episodes/' + podcast_id + '/' + podcast_id + '_' + self.file_number(episode_number)
+    super self.filename podcast_id, episode_number
+  end
+
+  def self.filename podcast_id, episode_number, format="json"
+  	'data/episodes/' + podcast_id + '/' + podcast_id + '_' + self.file_number(episode_number) + '.' + format
   end
 
   def self.file_number episode_number
@@ -99,15 +100,11 @@ class Episode < Schema
   end
 
   def body
-    if @body_html.nil?
-      if @body.nil?
-        @body = @summary
-        @body_html = @body
-      else
-      	@body_html = markdown.render(File.read('data/episodes/' + @podcast_id + '/' + @podcast_id + '_' + self.file_number(@episode_number)))
-      end
+    begin
+      markdown.render(File.read(Episode.filename(@podcast_id, @episode_number, 'md')))
+    rescue
+      @summary
     end
-    @body_html
   end
 
   def body_truncate

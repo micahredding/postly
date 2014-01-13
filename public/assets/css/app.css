@@ -310,9 +310,19 @@ header {
       padding: 10px 20px; }
       header span.site-name a:hover, header span.connect a:hover {
         color: #018fe2; }
+  header span.site-name span {
+    display: none; }
+    @media screen and (min-width: 768px) {
+      header span.site-name span {
+        display: inline; } }
   @media screen and (min-width: 768px) {
     header span.connect {
       float: right; } }
+  header span.connect a span {
+    display: none; }
+    @media screen and (min-width: 768px) {
+      header span.connect a span {
+        display: inline; } }
 
 .back-link {
   padding: 0px; }
@@ -372,11 +382,7 @@ header {
     .footer-links a, .footer-links a:visited {
       background: none;
       text-align: right;
-      color: #000000;
-      text-shadow: 0px 0px 16px #ffffff; }
-      .footer-links a:hover, .footer-links a:visited:hover {
-        color: #000000;
-        text-shadow: none; } }
+      color: #000000; } }
 
 .podcast-index-wrapper {
   *zoom: 1;

@@ -44,9 +44,23 @@ header {
       }
     }
   }
+  span.site-name {
+    span {
+      display: none;
+      @include media($desktop) {
+        display: inline;
+      }
+    }
+  }
   span.connect {
     @include media($desktop) {
       float: right;
+    }
+    a span {
+      display: none;
+      @include media($desktop) {
+        display: inline;
+      }
     }
   }
 }
@@ -125,11 +139,6 @@ $padding:20px;
       background:none;
       text-align: right;
       color: #000000;
-      text-shadow: 0px 0px 16px #ffffff;
-      &:hover {
-        color: #000000;
-        text-shadow: none;
-      }
     }
   }
 }

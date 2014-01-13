@@ -11,7 +11,7 @@
 	<a href="<%= @podcast.itunes_url %>">Subscribe in iTunes</a><br />
 	<a href="<%= @podcast.rss_url %>">Subscribe in RSS</a><br />
 	<% @podcast.links.each do |text, href| %>
-  <a href="<%= href %>"><%= text %></a>
+  <a href="<%= href %>"><%= text %></a><br />
   <% end %>
 
   <div class="podcast-episodes">

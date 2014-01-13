@@ -1,0 +1,7 @@
+<% if @podcast %>
+	<a href="<%= @podcast.itunes_url %>">Subscribe in iTunes</a>
+	<a href="<%= @podcast.rss_url %>">Subscribe in RSS</a>
+	<% @podcast.links.each do |text, href| %>
+	<a href="<%= href %>"><%= text %></a>
+	<% end %>
+<% end %>
