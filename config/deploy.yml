@@ -1,0 +1,6 @@
+production:
+  domain:
+  - name: "root@198.199.88.79"
+  deploy_to: "/var/www/podcast_network/"
+  repository: "git@github.com:micahredding/brickcaster.git"
+  branch: "sinatra"
