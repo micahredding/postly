@@ -35,13 +35,8 @@ $padding: 20px;
   }
 
   .episode-body {
-    font-size: 1.7em;
-    line-height: 1.5em;
+    @include page-body;
     margin:$padding;
-    p, ul, li {
-      font-size: 1em;
-      line-height: 1.3em;
-    }
     ul {
       padding-left: 1em;
       li {

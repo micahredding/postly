@@ -1,14 +1,16 @@
 @mixin page-title {
-  color: #000000;
-  font-size: 2em;
-  line-height: 1.2em;
-
-  @media(min-width:640px) {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  @include media($mobile) {
+    font-size: 2em;
+  }
+  @include media($tablet) {
     font-size: 3em;
   }
-  @media(min-width:800px) {
+  @include media($desktop) {
     font-size: 3.7em;
   }
+  color: #000000;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   margin-top:0;
@@ -19,5 +21,20 @@
       background:none;
       color: #000000;
     }
-  }  
+  }
+}
+
+@mixin page-body {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  @include media($tablet) {
+    font-size: 1.5em;
+  }
+  @include media($desktop) {
+    font-size: 1.7em;
+  }
+  p, ul, li {
+    font-size: 1em;
+    line-height: 1.3em;
+  }
 }

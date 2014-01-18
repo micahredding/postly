@@ -269,17 +269,20 @@ body .page {
       max-width: 800px; } }
 
 .page-title {
+  font-size: 1.2em;
+  line-height: 1.5em;
   color: #000000;
-  font-size: 2em;
-  line-height: 1.2em;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 0.5em; }
-  @media (min-width: 640px) {
+  @media screen and (min-width: 100px) {
+    .page-title {
+      font-size: 2em; } }
+  @media screen and (min-width: 480px) {
     .page-title {
       font-size: 3em; } }
-  @media (min-width: 800px) {
+  @media screen and (min-width: 768px) {
     .page-title {
       font-size: 3.7em; } }
   .page-title a {
@@ -315,14 +318,13 @@ header {
     @media screen and (min-width: 768px) {
       header span.site-name span {
         display: inline; } }
-  @media screen and (min-width: 768px) {
-    header span.connect {
-      float: right; } }
-  header span.connect a span {
-    display: none; }
-    @media screen and (min-width: 768px) {
-      header span.connect a span {
-        display: inline; } }
+  header span.connect {
+    float: right; }
+    header span.connect a span {
+      display: none; }
+      @media screen and (min-width: 768px) {
+        header span.connect a span {
+          display: inline; } }
 
 .back-link {
   padding: 0px; }
@@ -398,9 +400,9 @@ header {
     clear: both; }
 
 .podcast-teaser {
+  *zoom: 1;
   padding: 0 2em;
-  margin-bottom: 2em;
-  *zoom: 1; }
+  margin-bottom: 2em; }
   .podcast-teaser:before, .podcast-teaser:after {
     content: " ";
     display: table; }
@@ -414,9 +416,17 @@ header {
       .podcast-teaser img {
         float: left; } }
   .podcast-teaser .podcast-title {
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 50%; }
+    font-size: 1.2em;
+    line-height: 1.5em; }
+    @media screen and (min-width: 480px) {
+      .podcast-teaser .podcast-title {
+        font-size: 1.5em; } }
+    @media screen and (min-width: 768px) {
+      .podcast-teaser .podcast-title {
+        font-size: 1.7em; } }
+    .podcast-teaser .podcast-title p, .podcast-teaser .podcast-title ul, .podcast-teaser .podcast-title li {
+      font-size: 1em;
+      line-height: 1.3em; }
     .podcast-teaser .podcast-title a, .podcast-teaser .podcast-title a:visited {
       color: black; }
   .podcast-teaser .podcast-body {
@@ -440,19 +450,22 @@ header {
       .podcast-wrapper .podcast-topbar {
         display: block; } }
   .podcast-wrapper .podcast-title {
+    font-size: 1.2em;
+    line-height: 1.5em;
     color: #000000;
-    font-size: 2em;
-    line-height: 1.2em;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0.5em;
     padding: 0;
     margin: 20px 0; }
-    @media (min-width: 640px) {
+    @media screen and (min-width: 100px) {
+      .podcast-wrapper .podcast-title {
+        font-size: 2em; } }
+    @media screen and (min-width: 480px) {
       .podcast-wrapper .podcast-title {
         font-size: 3em; } }
-    @media (min-width: 800px) {
+    @media screen and (min-width: 768px) {
       .podcast-wrapper .podcast-title {
         font-size: 3.7em; } }
     .podcast-wrapper .podcast-title a {
@@ -464,14 +477,33 @@ header {
       .podcast-wrapper .podcast-title {
         margin: 20px auto; } }
   .podcast-wrapper .podcast-body {
-    font-size: 1.5em;
+    font-size: 1.2em;
     line-height: 1.5em;
     margin: 20px 0; }
+    @media screen and (min-width: 480px) {
+      .podcast-wrapper .podcast-body {
+        font-size: 1.5em; } }
+    @media screen and (min-width: 768px) {
+      .podcast-wrapper .podcast-body {
+        font-size: 1.7em; } }
+    .podcast-wrapper .podcast-body p, .podcast-wrapper .podcast-body ul, .podcast-wrapper .podcast-body li {
+      font-size: 1em;
+      line-height: 1.3em; }
   .podcast-wrapper .podcast-episodes {
+    font-size: 1.2em;
+    line-height: 1.5em;
     margin: 20px 0; }
+    @media screen and (min-width: 480px) {
+      .podcast-wrapper .podcast-episodes {
+        font-size: 1.5em; } }
+    @media screen and (min-width: 768px) {
+      .podcast-wrapper .podcast-episodes {
+        font-size: 1.7em; } }
+    .podcast-wrapper .podcast-episodes p, .podcast-wrapper .podcast-episodes ul, .podcast-wrapper .podcast-episodes li {
+      font-size: 1em;
+      line-height: 1.3em; }
     .podcast-wrapper .podcast-episodes .episode a {
       display: block;
-      font-size: 1.5em;
       line-height: 1em;
       text-decoration: none;
       color: #000000;
@@ -503,17 +535,20 @@ header {
   max-width: 220px; }
 
 .episode-title {
+  font-size: 1.2em;
+  line-height: 1.5em;
   color: #000000;
-  font-size: 2em;
-  line-height: 1.2em;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 0.5em; }
-  @media (min-width: 640px) {
+  @media screen and (min-width: 100px) {
+    .episode-title {
+      font-size: 2em; } }
+  @media screen and (min-width: 480px) {
     .episode-title {
       font-size: 3em; } }
-  @media (min-width: 800px) {
+  @media screen and (min-width: 768px) {
     .episode-title {
       font-size: 3.7em; } }
   .episode-title a {
@@ -543,9 +578,15 @@ header {
       .episode-wrapper .episode-title {
         margin: 0 auto; } }
   .episode-wrapper .episode-body {
-    font-size: 1.7em;
+    font-size: 1.2em;
     line-height: 1.5em;
     margin: 20px; }
+    @media screen and (min-width: 480px) {
+      .episode-wrapper .episode-body {
+        font-size: 1.5em; } }
+    @media screen and (min-width: 768px) {
+      .episode-wrapper .episode-body {
+        font-size: 1.7em; } }
     .episode-wrapper .episode-body p, .episode-wrapper .episode-body ul, .episode-wrapper .episode-body li {
       font-size: 1em;
       line-height: 1.3em; }

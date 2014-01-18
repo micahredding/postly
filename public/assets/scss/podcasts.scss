@@ -9,10 +9,9 @@
   margin-top:2em;
 }
 .podcast-teaser {
+  @include clearfix;
   padding:0 2em;
   margin-bottom: 2em;
-  @include clearfix;
-
   img {
     display: inline-block;
     vertical-align: middle;
@@ -22,14 +21,12 @@
     }
   }
   .podcast-title {
+    @include page-body;
     a {
       &, &:visited {
         color: black;
       }
     }
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 50%;
   }
   .podcast-body {
     display: block;
@@ -69,23 +66,20 @@ $padding: 20px;
     }
   }
   .podcast-body {
-    font-size: 1.5em;
-    line-height: 1.5em;
+    @include page-body;
     margin:$padding 0;
   }
   .podcast-episodes {
+    @include page-body;
     margin: $padding 0;
     .episode a {
       display: block;
-      font-size: 1.5em;
       line-height: 1em;
       text-decoration: none;
-      // color: #0071B3;
       color:#000000;
 
       &:hover, &:focus {
         color: #018fe2;
-        // background: #EEEEEE;
       }
 
       padding:$padding 0;

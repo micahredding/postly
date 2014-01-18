@@ -53,9 +53,7 @@ header {
     }
   }
   span.connect {
-    @include media($desktop) {
-      float: right;
-    }
+    float: right;
     a span {
       display: none;
       @include media($desktop) {
