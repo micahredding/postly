@@ -1,6 +1,7 @@
-# production:
-#   domain:
-#   - name: "root@198.199.88.79"
-#   deploy_to: "/var/www/podcast_network/"
-#   repository: "git@github.com:micahredding/brickcaster.git"
-#   branch: "sinatra"
+production:
+  domain:
+    name: "bricksco@bricksites.com"
+    ssh_options: "-p 2222"
+  deploy_to: "~/public_html/micahredding/postly"
+  repository: "git@github.com:micahredding/postly.git"
+  branch: "master"
