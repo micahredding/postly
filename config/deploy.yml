@@ -2,6 +2,6 @@ production:
   domain:
     name: "bricksco@bricksites.com"
     ssh_options: "-p 2222"
-  deploy_to: "~/public_html/micahredding/postly"
+  deploy_to: "~/public_html/micahredding_postly"
   repository: "git@github.com:micahredding/postly.git"
   branch: "master"
