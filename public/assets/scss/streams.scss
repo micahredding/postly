@@ -1,0 +1,16 @@
+// Place all the styles related to the podcasts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$padding: 20px;
+
+.stream-title {
+  @include page-title;
+  margin-bottom: 1em;
+}
+.stream-posts {
+  margin: $padding 0;
+  .post {
+    margin: $padding 0;
+  }
+}

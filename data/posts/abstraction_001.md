@@ -1,5 +1,9 @@
 # First Post
 
+http://www.youtube.com/watch?v=wolYS2EvtBE
+
+http://en.wikipedia.org/wiki/Epimenides_paradox
+
 Schrodinger's Cat, the Epimenides Paradox, and Men of a Certain Age all feature in this remake of the episode that kicked off the show.
 
 Topics covered:

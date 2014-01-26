@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title><%=
+    if @post
+      @post.title
+    elsif @stream
+      @stream.title
+    end
+  %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/ico" href="/favicon.ico">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -11,24 +17,20 @@
 <body>
   <header>
     <span class="site-name">
-      <a href="/">brickcaster<span>: small podcasts from the human edge</span></a>
+      <a href="/">Micah Redding<span></span></a>
     </span>
     <span class="connect">
-      <a href="http://twitter.com/brickcaster"><i class="icon-twitter"></i><span>/brickcaster</span></a>
-      <a href="http://facebook.com/brickcaster"><i class="icon-facebook"></i><span>/brickcaster</span></a>
-      <a href="https://plus.google.com/107355867909504468216" rel="publisher"><i class="icon-google-plus"></i><span>/brickcaster</span></a>
+      <a href="http://twitter.com/micahtredding"><i class="icon-twitter"></i><span>/micahtredding</span></a>
+      <a href="http://facebook.com/micahredding"><i class="icon-facebook"></i><span>/micahredding</span></a>
+      <a href="https://plus.google.com/+MicahRedding" rel="publisher"><i class="icon-google-plus"></i><span>/+micahredding</span></a>
     </span>
   </header>
-  <div class="header-art">
-    <div class="back-link">
-    </div>
-  </div>
   <div class="page">
     <%= yield %>
   </div>
   <div class="footer-links"><div class="footer-links-inner">
     <div class="twitter-like">
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="brickcaster">Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="micahtredding">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
     <div class="fb-like" data-href="<%= request.url %>" data-width="450" data-layout="box_count" data-show-faces="true" data-send="true"></div>
@@ -36,8 +38,9 @@
 
 
   <script type="text/javascript" src="/assets/bower_components/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/bower_components/fitvids/jquery.fitvids.js"></script>
   <script type="text/javascript" src="/assets/js/audioplayer.min.js"></script>
-  <script type="text/javascript" src="/assets/js/episodes.js"></script>
+  <script type="text/javascript" src="/assets/js/posts.js"></script>
   <script type="text/javascript" src="/assets/js/analytics.js"></script>
   <div id="fb-root"></div>
   <script>(function(d, s, id) {

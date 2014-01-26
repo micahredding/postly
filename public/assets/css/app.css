@@ -258,38 +258,19 @@ dl {
   box-sizing: border-box; }
 
 body {
+  background: #ddd;
   margin: 0;
   padding: 0; }
 
 body .page {
-  margin: 0 2em; }
-  @media screen and (min-width: 480px) {
+  margin: 2em 1em; }
+  @media screen and (min-width: 800px) {
     body .page {
-      margin: 0px auto;
-      max-width: 800px; } }
+      margin: 2em auto;
+      max-width: 50em; } }
 
-.page-title {
-  font-size: 1.2em;
-  line-height: 1.5em;
-  color: #000000;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 0.5em; }
-  @media screen and (min-width: 100px) {
-    .page-title {
-      font-size: 2em; } }
-  @media screen and (min-width: 480px) {
-    .page-title {
-      font-size: 3em; } }
-  @media screen and (min-width: 768px) {
-    .page-title {
-      font-size: 3.7em; } }
-  .page-title a {
-    text-decoration: none; }
-    .page-title a:hover {
-      background: none;
-      color: #000000; }
+iframe, .fluid-width-video-wrapper {
+  margin-bottom: 1em; }
 
 a {
   color: #0071B3; }
@@ -297,53 +278,23 @@ a {
     color: #018fe2; }
 
 header {
-  background: #000000;
   font-size: 0.9em; }
   @media screen and (min-width: 768px) {
     header {
       font-size: 1em; } }
-  header a, header span {
-    color: #ffffff; }
-  header span.site-name, header span.connect {
-    display: inline-block; }
-    header span.site-name a, header span.connect a {
-      color: #ffffff;
+  header span {
+    color: #999;
+    display: inline-block;
+    text-transform: lowercase; }
+    header span a {
+      color: #999;
       text-decoration: none;
       display: inline-block;
       padding: 10px 20px; }
-      header span.site-name a:hover, header span.connect a:hover {
-        color: #018fe2; }
-  header span.site-name span {
-    display: none; }
-    @media screen and (min-width: 768px) {
-      header span.site-name span {
-        display: inline; } }
-  header span.connect {
-    float: right; }
-    header span.connect a span {
+      header span a:hover {
+        color: #333; }
+    header span span {
       display: none; }
-      @media screen and (min-width: 768px) {
-        header span.connect a span {
-          display: inline; } }
-
-.back-link {
-  padding: 0px; }
-  .back-link a, .back-link a:link {
-    text-decoration: none;
-    padding: 10px 20px;
-    display: block;
-    color: #000000; }
-    .back-link a.white, .back-link a:link.white {
-      color: #ffffff; }
-
-.header-art {
-  position: relative;
-  padding: 0; }
-  .header-art img {
-    width: 100%; }
-  .header-art .back-link {
-    position: absolute;
-    top: 0; }
 
 .footer-links {
   background: #111111; }
@@ -378,7 +329,7 @@ header {
 @media screen and (min-width: 768px) {
   .footer-links {
     position: fixed;
-    top: 2.9em;
+    top: 0em;
     right: 0;
     background: none; }
     .footer-links a, .footer-links a:visited {
@@ -386,219 +337,89 @@ header {
       text-align: right;
       color: #000000; } }
 
-.podcast-index-wrapper {
-  *zoom: 1;
-  max-width: 86.75em;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 800px;
-  margin-top: 2em; }
-  .podcast-index-wrapper:before, .podcast-index-wrapper:after {
-    content: " ";
-    display: table; }
-  .podcast-index-wrapper:after {
-    clear: both; }
-
-.podcast-teaser {
-  *zoom: 1;
-  padding: 0 2em;
-  margin-bottom: 2em; }
-  .podcast-teaser:before, .podcast-teaser:after {
-    content: " ";
-    display: table; }
-  .podcast-teaser:after {
-    clear: both; }
-  .podcast-teaser img {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0em 1em 1em 0; }
-    @media screen and (min-width: 480px) {
-      .podcast-teaser img {
-        float: left; } }
-  .podcast-teaser .podcast-title {
-    font-size: 1.2em;
-    line-height: 1.5em; }
-    @media screen and (min-width: 480px) {
-      .podcast-teaser .podcast-title {
-        font-size: 1.5em; } }
-    @media screen and (min-width: 768px) {
-      .podcast-teaser .podcast-title {
-        font-size: 1.7em; } }
-    .podcast-teaser .podcast-title p, .podcast-teaser .podcast-title ul, .podcast-teaser .podcast-title li {
-      font-size: 1em;
-      line-height: 1.3em; }
-    .podcast-teaser .podcast-title a, .podcast-teaser .podcast-title a:visited {
-      color: black; }
-  .podcast-teaser .podcast-body {
-    display: block; }
-    @media (max-width: 480px) {
-      .podcast-teaser .podcast-body {
-        display: none; } }
-
-.podcast-wrapper {
-  max-width: 800px;
-  margin: 0 auto; }
-  @media (min-width: 800px) {
-    .podcast-wrapper {
-      padding: 0 0; } }
-  .podcast-wrapper .podcast-topbar {
-    padding: 0;
-    display: none; }
-    .podcast-wrapper .podcast-topbar img {
-      height: auto; }
-    @media (min-width: 800px) {
-      .podcast-wrapper .podcast-topbar {
-        display: block; } }
-  .podcast-wrapper .podcast-title {
-    font-size: 1.2em;
-    line-height: 1.5em;
-    color: #000000;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    padding: 0;
-    margin: 20px 0; }
-    @media screen and (min-width: 100px) {
-      .podcast-wrapper .podcast-title {
-        font-size: 2em; } }
-    @media screen and (min-width: 480px) {
-      .podcast-wrapper .podcast-title {
-        font-size: 3em; } }
-    @media screen and (min-width: 768px) {
-      .podcast-wrapper .podcast-title {
-        font-size: 3.7em; } }
-    .podcast-wrapper .podcast-title a {
-      text-decoration: none; }
-      .podcast-wrapper .podcast-title a:hover {
-        background: none;
-        color: #000000; }
-    @media (min-width: 800px) {
-      .podcast-wrapper .podcast-title {
-        margin: 20px auto; } }
-  .podcast-wrapper .podcast-body {
-    font-size: 1.2em;
-    line-height: 1.5em;
-    margin: 20px 0; }
-    @media screen and (min-width: 480px) {
-      .podcast-wrapper .podcast-body {
-        font-size: 1.5em; } }
-    @media screen and (min-width: 768px) {
-      .podcast-wrapper .podcast-body {
-        font-size: 1.7em; } }
-    .podcast-wrapper .podcast-body p, .podcast-wrapper .podcast-body ul, .podcast-wrapper .podcast-body li {
-      font-size: 1em;
-      line-height: 1.3em; }
-  .podcast-wrapper .podcast-episodes {
-    font-size: 1.2em;
-    line-height: 1.5em;
-    margin: 20px 0; }
-    @media screen and (min-width: 480px) {
-      .podcast-wrapper .podcast-episodes {
-        font-size: 1.5em; } }
-    @media screen and (min-width: 768px) {
-      .podcast-wrapper .podcast-episodes {
-        font-size: 1.7em; } }
-    .podcast-wrapper .podcast-episodes p, .podcast-wrapper .podcast-episodes ul, .podcast-wrapper .podcast-episodes li {
-      font-size: 1em;
-      line-height: 1.3em; }
-    .podcast-wrapper .podcast-episodes .episode a {
-      display: block;
-      line-height: 1em;
-      text-decoration: none;
-      color: #000000;
-      padding: 20px 0; }
-      .podcast-wrapper .podcast-episodes .episode a:hover, .podcast-wrapper .podcast-episodes .episode a:focus {
-        color: #018fe2; }
-
-.podcast-links {
-  background: #111111; }
-  .podcast-links a, .podcast-links a:visited {
-    color: #eee;
-    display: block;
-    font-size: 1em;
-    line-height: 1.5em;
-    padding: 10px 20px; }
-    .podcast-links a:hover, .podcast-links a:visited:hover {
-      background: #ffffff;
-      text-decoration: none;
-      color: #000000; }
-  .podcast-links .podcast-links-inner {
-    margin: 0 auto;
-    padding: 20px 0;
-    max-width: 800px; }
-
-/* Misc */
-.podcast-sidebar {
-  float: left;
-  margin: 0 30px 30px 0;
-  max-width: 220px; }
-
-.episode-title {
+.stream-title {
   font-size: 1.2em;
   line-height: 1.5em;
   color: #000000;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   margin-top: 0;
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.5em;
+  margin-bottom: 1em; }
   @media screen and (min-width: 100px) {
-    .episode-title {
+    .stream-title {
       font-size: 2em; } }
   @media screen and (min-width: 480px) {
-    .episode-title {
+    .stream-title {
       font-size: 3em; } }
   @media screen and (min-width: 768px) {
-    .episode-title {
+    .stream-title {
       font-size: 3.7em; } }
-  .episode-title a {
+  .stream-title a {
     text-decoration: none; }
-    .episode-title a:hover {
+    .stream-title a:hover {
       background: none;
       color: #000000; }
 
-.episode-wrapper {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  max-width: 800px;
-  margin: 0 auto; }
-  .episode-wrapper .episode-topbar {
-    text-align: center;
-    padding: 20px; }
-    .episode-wrapper .episode-topbar img {
-      width: 100%;
-      height: auto; }
-    @media (min-width: 800px) {
-      .episode-wrapper .episode-topbar {
-        padding: 40px 20px; } }
-  .episode-wrapper .episode-title {
-    padding: 0 20px;
+.stream-posts {
+  margin: 20px 0; }
+  .stream-posts .post {
     margin: 20px 0; }
-    @media (min-width: 800px) {
-      .episode-wrapper .episode-title {
-        margin: 0 auto; } }
-  .episode-wrapper .episode-body {
-    font-size: 1.2em;
-    line-height: 1.5em;
-    margin: 20px; }
+
+.post {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  background: #ffffff;
+  box-shadow: 1px 2px 1px rgba(10, 10, 10, 0.2);
+  margin: 1em 0 3em;
+  padding: 1em 2em 2em;
+  word-wrap: break-word; }
+  @media screen and (min-width: 480px) {
+    .post {
+      font-size: 1.5em; } }
+  @media screen and (min-width: 768px) {
+    .post {
+      font-size: 1.7em; } }
+  .post p, .post ul, .post li {
+    font-size: 1em;
+    line-height: 1.3em; }
+  .post:hover {
+    box-shadow: 1px 2px 10px rgba(10, 10, 10, 0.2); }
+  .post h1, .post h2 {
+    font-size: 1em;
+    line-height: 1.2em;
+    color: #000000;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    margin-bottom: 0.5em; }
+    @media screen and (min-width: 100px) {
+      .post h1, .post h2 {
+        font-size: 1.2em; } }
     @media screen and (min-width: 480px) {
-      .episode-wrapper .episode-body {
+      .post h1, .post h2 {
         font-size: 1.5em; } }
     @media screen and (min-width: 768px) {
-      .episode-wrapper .episode-body {
-        font-size: 1.7em; } }
-    .episode-wrapper .episode-body p, .episode-wrapper .episode-body ul, .episode-wrapper .episode-body li {
-      font-size: 1em;
-      line-height: 1.3em; }
-    .episode-wrapper .episode-body ul {
-      padding-left: 1em; }
-      .episode-wrapper .episode-body ul li {
-        list-style-type: disc;
-        margin: 0.3em 0; }
-    .episode-wrapper .episode-body a {
-      color: #0071B3; }
-      .episode-wrapper .episode-body a:hover, .episode-wrapper .episode-body a:focus {
-        color: #018fe2; }
+      .post h1, .post h2 {
+        font-size: 2em; } }
+    .post h1 a, .post h2 a {
+      text-decoration: none; }
+      .post h1 a:hover, .post h2 a:hover {
+        background: none;
+        color: #000000; }
+  .post ul {
+    padding-left: 1em; }
+    .post ul li {
+      list-style-type: disc;
+      margin: 0.3em 0; }
+  .post a {
+    color: #0071B3; }
+    .post a:hover, .post a:focus {
+      color: #018fe2; }
 
 #wrapper {
   width: 30em;

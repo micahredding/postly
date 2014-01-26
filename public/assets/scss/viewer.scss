@@ -2,20 +2,20 @@
   box-sizing: border-box;
 }
 body {
+  background: #ddd;
   margin:0;
   padding:0;
 }
 body .page {
-  @include media($tablet) {
-    margin:0px auto;
-    max-width: 800px;
+  margin:2em 1em;
+  @include media($desktop-medium) {
+    margin:2em auto;
+    max-width: $max-width;
   }
-  margin:0 2em;
 }
-.page-title {
-  @include page-title;
+iframe, .fluid-width-video-wrapper {
+  margin-bottom: 1em;
 }
-
 a {
   color: #0071B3;
   &:hover, &:focus {
@@ -24,69 +24,30 @@ a {
 }
 
 header {
-  background: #000000;
   font-size: 0.9em;
   @include media($desktop) {
     font-size: 1em;
   }
-  a, span {
-    color: #ffffff;
-  }
-  span.site-name, span.connect {
+  span {
+    color: #999;
     display: inline-block;
+    text-transform: lowercase;
     a {
-      color: #ffffff;
+      color: #999;
       text-decoration: none;
       display: inline-block;
       padding:10px 20px;
       &:hover {
-        color: #018fe2;
+        // color: #018fe2;
+        color: #333;
       }
     }
-  }
-  span.site-name {
     span {
       display: none;
-      @include media($desktop) {
-        display: inline;
-      }
+      // @include media($desktop) {
+      //   display: inline;
+      // }
     }
-  }
-  span.connect {
-    float: right;
-    a span {
-      display: none;
-      @include media($desktop) {
-        display: inline;
-      }
-    }
-  }
-}
-
-.back-link {
-  padding:0px;
-
-  a, a:link {
-    text-decoration: none;
-    padding:10px 20px;
-    display: block;
-    color:#000000;
-    &.white {
-      color: #ffffff;
-    }
-  }
-
-}
-
-.header-art {
-  position: relative;
-  padding: 0;
-  img {
-    width: 100%;
-  }
-  .back-link {
-    position: absolute;
-    top:0;
   }
 }
 
@@ -130,7 +91,7 @@ $padding:20px;
 .footer-links {
   @include media($desktop) {
     position: fixed;
-    top:2.9em;
+    top:0em;
     right:0;
     background:none;
     a, a:visited {

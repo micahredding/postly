@@ -24,6 +24,33 @@
   }
 }
 
+@mixin post-title {
+  font-size: 1em;
+  line-height: 1.2em;
+  @include media($mobile) {
+    font-size: 1.2em;
+  }
+  @include media($tablet) {
+    font-size: 1.5em;
+  }
+  @include media($desktop) {
+    font-size: 2em;
+  }
+  color: #000000;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin-top:0;
+  margin-bottom: 0.5em;
+  a {
+    text-decoration: none;
+    &:hover {
+      background:none;
+      color: #000000;
+    }
+  }
+}
+
+
 @mixin page-body {
   font-size: 1.2em;
   line-height: 1.5em;

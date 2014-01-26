@@ -1,0 +1,35 @@
+// Place all the styles related to the episodes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$padding: 20px;
+
+.post {
+  @include page-body;
+  @include transition (all .3s);
+  background: #ffffff;
+  box-shadow: 1px 2px 1px rgba(10,10,10,0.2);
+  &:hover {
+    box-shadow: 1px 2px 10px rgba(10,10,10,0.2);
+  }
+  margin:1em 0 3em;
+  padding:1em 2em 2em;
+  word-wrap: break-word;
+  h1, h2 {
+    @include post-title;
+    margin-bottom: 0.5em;
+  }
+  ul {
+    padding-left: 1em;
+    li {
+      list-style-type: disc;
+      margin:0.3em 0;
+    }
+  }
+  a {
+   color: #0071B3;
+    &:hover, &:focus {
+      color: #018fe2;
+    }
+  }
+}
