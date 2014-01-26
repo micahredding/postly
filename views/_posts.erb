@@ -1,3 +1,3 @@
 <% @stream.posts.reverse.each do |post| %>
-<article class="post"><%= post.content %></article>
+<article class="post"><a href="<%= post.url %>"><i class="fa fa-bookmark"></i></a><%= post.content %></article>
 <% end %>
