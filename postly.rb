@@ -112,6 +112,10 @@ class Stream
       Post.new(post_id)
     end
   end
+
+  def url
+    '/streams/' + @stream_id
+  end
 end
 
 class Post
@@ -134,6 +138,10 @@ class Post
     contents = File.read(filename())
     markdown.render(contents)
   end
+
+  def url
+    '/posts/' + @post_id
+  end
 end
 
 helpers BrickcasterHelpers
@@ -150,11 +158,11 @@ end
 # 	@podcast.json
 # end
 
-# get '/:podcast_id.rss' do
-# 	@podcast = Podcast.get(params[:podcast_id]);
-#   redirect '/' if @podcast.nil?
-# 	builder :podcast_rss
-# end
+get '/streams/:stream_id.rss' do
+  @stream = Stream.new(params[:stream_id])
+  redirect '/' if @stream.nil?
+	builder :stream_rss
+end
 
 get '/streams/:stream_id' do
   @stream = Stream.new(params[:stream_id])
