@@ -52,13 +52,13 @@
 
 
 @mixin page-body {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.5em;
   @include media($tablet) {
-    font-size: 1.5em;
+    font-size: 1em;
   }
   @include media($desktop) {
-    font-size: 1.7em;
+    font-size: 1.2em;
   }
   p, ul, li {
     font-size: 1em;
