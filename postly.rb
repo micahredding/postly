@@ -79,23 +79,17 @@ class Post
     @post_id = post_id
   end
 
-  def self.filename post_id, format="md"
-    'data/posts/' + post_id + '.' + format
+  def filename format="md"
+    'data/posts/' + @post_id + '.' + format
   end
 
   def self.get post_id
-    begin
-      File.open(self.filename(post_id), "r") do |f|
-        self.new JSON.load( f )
-      end
-    rescue
-      puts post_id
-      nil
-    end
+    self.new post_id
   end
 
   def content
-    markdown.render(File.read(self.filename(@post_id)))
+    contents = File.read(filename())
+    markdown.render(contents)
   end
 end
 
@@ -103,7 +97,7 @@ helpers BrickcasterHelpers
 
 get '/:post_id' do
 	@post = Post.get(params[:post_id])
-  redirect '/' if @post.nil?
+  # redirect '/' if @post.nil?
 	erb :post
 end
 

@@ -1,3 +1,5 @@
+# First Post
+
 Schrodinger's Cat, the Epimenides Paradox, and Men of a Certain Age all feature in this remake of the episode that kicked off the show.
 
 Topics covered:
