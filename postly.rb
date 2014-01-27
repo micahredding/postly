@@ -3,6 +3,7 @@ require 'json'
 require 'builder'
 require 'redcarpet'
 require 'nokogiri'
+require 'uri'
 
 module BrickcasterHelpers
   class HTMLwithEmbeds < Redcarpet::Render::HTML
@@ -29,6 +30,7 @@ module BrickcasterHelpers
       :space_after_headers => true
     )
   end
+
   # def format_date(date)
   #   puts DateTime.parse(date).rfc822
   #   return 0 if date.nil?
@@ -116,6 +118,10 @@ class Stream
   def url
     '/streams/' + @stream_id
   end
+
+  def twitter_status
+    title + ' ' + url
+  end
 end
 
 class Post
@@ -141,6 +147,10 @@ class Post
 
   def url
     '/posts/' + @post_id
+  end
+
+  def twitter_status
+    title + ' ' + url
   end
 end
 

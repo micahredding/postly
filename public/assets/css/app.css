@@ -297,45 +297,24 @@ header {
       display: none; }
 
 .footer-links {
-  background: #111111; }
-  .footer-links a, .footer-links a:visited {
-    color: #eee;
-    display: block;
-    font-size: 1em;
-    line-height: 1.5em;
-    padding: 10px 20px; }
-    .footer-links a:hover, .footer-links a:visited:hover {
-      background: #ffffff;
-      text-decoration: none;
-      color: #000000; }
-  .footer-links p {
-    margin: 0 0; }
-  .footer-links .fb-like {
-    padding: 20px; }
-  .footer-links .twitter-like {
-    margin: 1em; }
-    @media screen and (min-width: 768px) {
-      .footer-links .twitter-like {
-        margin: 1em -1em 1em 1em; } }
-  .footer-links .footer-links-inner {
-    margin: 0 auto;
-    padding: 20px 0;
-    max-width: 800px;
-    text-align: right; }
-    @media screen and (min-width: 768px) {
-      .footer-links .footer-links-inner {
-        padding: 0 0; } }
-
-@media screen and (min-width: 768px) {
-  .footer-links {
-    position: fixed;
-    top: 0em;
-    right: 0;
-    background: none; }
-    .footer-links a, .footer-links a:visited {
+  background: #111; }
+  @media screen and (min-width: 768px) {
+    .footer-links {
       background: none;
-      text-align: right;
-      color: #000000; } }
+      position: fixed;
+      right: 0;
+      top: 0em;
+      width: 12em; } }
+  .footer-links a {
+    color: #999;
+    display: block;
+    font-size: 0.9em;
+    line-height: 1.5em; }
+    .footer-links a:hover {
+      color: #333;
+      text-decoration: none; }
+  .footer-links li {
+    padding: 1em 2em 0em 1em; }
 
 .stream-title {
   font-size: 1.2em;

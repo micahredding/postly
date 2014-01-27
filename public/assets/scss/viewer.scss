@@ -51,54 +51,27 @@ header {
   }
 }
 
-$padding:20px;
 .footer-links {
-  background: #111111;
-  a, a:visited {
-    color:#eee;
-    display: block;
-    font-size: 1em;
-    line-height: 1.5em;
-    padding:($padding / 2) $padding;
-    &:hover {
-      background: #ffffff;
-      text-decoration: none;
-      color: #000000;
-    }
-  }
-  p {
-    margin:0 0;
-  }
-  .fb-like {
-    padding: $padding;
-  }
-  .twitter-like {
-    margin:1em;
-    @include media($desktop) {
-      margin:1em -1em 1em 1em;
-    }
-  }
-  .footer-links-inner {
-    margin:0 auto;
-    padding: $padding 0;
-    max-width: 800px;
-    text-align: right;
-    @include media($desktop) {
-      padding:0 0;
-    }
-  }
-}
-.footer-links {
+  background: #111;
   @include media($desktop) {
-    position: fixed;
-    top:0em;
-    right:0;
     background:none;
-    a, a:visited {
-      background:none;
-      text-align: right;
-      color: #000000;
+    position: fixed;
+    right:0;
+    top:0em;
+    width:12em;
+  }
+  a {
+    color:#999;
+    display: block;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    &:hover {
+      color: #333;
+      text-decoration: none;
     }
+  }
+  li {
+    padding:1em 2em 0em 1em;
   }
 }
 

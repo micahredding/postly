@@ -10,7 +10,6 @@
   %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/ico" href="/favicon.ico" />
-<!--   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /> -->
   <link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
   <link href="https://plus.google.com/107355867909504468216" rel="publisher" />
   <link href="/assets/css/app.css" rel="stylesheet" />
@@ -29,13 +28,21 @@
   <div class="page">
     <%= yield %>
   </div>
-  <div class="footer-links"><div class="footer-links-inner">
-    <div class="twitter-like">
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="micahtredding">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
-    <div class="fb-like" data-href="<%= request.url %>" data-width="450" data-layout="box_count" data-show-faces="true" data-send="true"></div>
-  </div></div>
+  <div class="footer-links"><ul class="footer-links-inner">
+    <li><a href="http://micahredding.com/curve"><i class="fa fa-envelope-o"></i> Essays by email</a></li>
+    <li><a href="http://twitter.com/?status=<%=
+      if @post
+        message = @post.title
+        url = @post.url
+      elsif @stream
+        message = @stream.title
+        url = @stream.url
+      end
+      status = '“' + message + '” ' + request.scheme + '://' + request.host + url + ' via @micahtredding'
+      URI.encode(status)
+    %>"><i class="fa fa-twitter"></i> Tweet this</a></li>
+    <li class="fb-like" data-href="<%= request.url %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></li>
+  </ul></div>
 
 
   <script type="text/javascript" src="/assets/bower_components/jquery/jquery.min.js"></script>
