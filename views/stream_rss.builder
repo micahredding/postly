@@ -4,7 +4,7 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
     xml.atom :link, :href => request.host + @stream.url, :rel => "self", :type => "application/rss+xml"
 
     # id
-    xml.link request.scheme + '://' + request.host + @stream.url
+    xml.link request.scheme + '://' + request.host + '/' + @stream.url
 
     # title, summary, content
     xml.title @stream.title
@@ -43,8 +43,8 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
     posts.each do |post|
       xml.item do
         # id
-        xml.guid request.scheme + '://' + request.host + post.url
-        xml.link request.scheme + '://' + request.host + post.url
+        xml.guid request.scheme + '://' + request.host + '/' + post.url
+        xml.link request.scheme + '://' + request.host + '/' + post.url
 
         # title, summary, content
         xml.title post.title

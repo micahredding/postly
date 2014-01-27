@@ -116,7 +116,7 @@ class Stream
   end
 
   def url
-    '/streams/' + @stream_id
+    @stream_id
   end
 
   def twitter_status
@@ -146,7 +146,7 @@ class Post
   end
 
   def url
-    '/posts/' + @post_id
+    'posts/' + @post_id
   end
 
   def twitter_status
@@ -168,13 +168,13 @@ end
 # 	@podcast.json
 # end
 
-get '/streams/:stream_id.rss' do
+get '/:stream_id.rss' do
   @stream = Stream.new(params[:stream_id])
   redirect '/' if @stream.nil?
 	builder :stream_rss
 end
 
-get '/streams/:stream_id' do
+get '/:stream_id' do
   @stream = Stream.new(params[:stream_id])
   redirect '/' if @stream.nil?
 	erb :stream
