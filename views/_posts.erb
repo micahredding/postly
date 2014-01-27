@@ -1,3 +1,5 @@
 <% @stream.posts.reverse.each do |post| %>
-<article class="post"><a href="<%= post.url %>"><i class="fa fa-bookmark"></i></a><%= post.content %></article>
+<article class="post" id="<%= post.post_id %>" data-url="/posts/<%= post.post_id %>">
+  <%= post.content %>
+</article>
 <% end %>

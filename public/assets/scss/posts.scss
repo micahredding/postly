@@ -13,6 +13,10 @@
   margin:1em 0 3em;
   padding:2em 2em 2em;
   word-wrap: break-word;
+  .bookmark {
+    float: right;
+    padding-top:0.5em;
+  }
   h1, h2 {
     @include post-title;
     margin-bottom: 0.5em;
