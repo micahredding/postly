@@ -5,7 +5,7 @@ require 'redcarpet'
 require 'nokogiri'
 require 'uri'
 
-module BrickcasterHelpers
+module PostlyHelpers
   class HTMLwithEmbeds < Redcarpet::Render::HTML
     def header(text, level)
       level += 1
@@ -43,7 +43,7 @@ module BrickcasterHelpers
 end
 
 # class Schema
-# 	include BrickcasterHelpers
+# 	include PostlyHelpers
 # 	attr_accessor :hash, :json
 
 # 	def initialize args
@@ -79,7 +79,7 @@ end
 # end
 
 class Stream
-  include BrickcasterHelpers
+  include PostlyHelpers
 	attr_accessor :stream_id
 
   def initialize stream_id
@@ -135,7 +135,7 @@ class Stream
 end
 
 class Post
-  include BrickcasterHelpers
+  include PostlyHelpers
   attr_accessor :post_id
 
   def initialize post_id
@@ -164,7 +164,7 @@ class Post
   end
 end
 
-helpers BrickcasterHelpers
+helpers PostlyHelpers
 
 get '/posts/:post_id' do
 	@post = Post.new(params[:post_id])
