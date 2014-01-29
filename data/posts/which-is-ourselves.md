@@ -1,4 +1,4 @@
-# Autoimmune
+# Rejection
 
 Sometimes we must reject that within us which is not ourselves.
 
