@@ -1,3 +1,5 @@
+# Reading, Writing, Walking
+
 I think people should have an education plan for themselves. Or a curriculum, at least. Mine focuses on three things: reading, writing, and walking.
 
 I want to read more books, particularly science fiction and humanist authors. By humanist, I mean GK Chesterton, CS Lewis, Annie Dillard, Phillip Pullman. I need to spend more time writing; short thoughts like this, long form thoughts like I do when my writing is sharp and warmed up and up to speed. And the rest of my time should be spent walking.
