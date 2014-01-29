@@ -109,6 +109,10 @@ class Stream
     load['posts']
   end
 
+  def subscribe
+    load['subscribe']
+  end
+
   def posts
     post_ids.collect do |post_id|
       Post.new(post_id)
@@ -121,6 +125,12 @@ class Stream
 
   def twitter_status
     title + ' ' + url
+  end
+
+  def self.index
+    ['thoughts-and-reads'].collect do |stream_id|
+      Stream.new stream_id
+    end
   end
 end
 
@@ -180,7 +190,7 @@ get '/:stream_id' do
 	erb :stream
 end
 
-# get '/' do
-#   @index = Index.get
-#   erb :index
-# end
+get '/' do
+  @streams = Stream.index
+  erb :index
+end

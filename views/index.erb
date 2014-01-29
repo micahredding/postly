@@ -1,9 +1,7 @@
 <div class="podcast-index-wrapper">
-<% @index.podcasts.each do |podcast| %>
+<% @streams.each do |stream| %>
 <div class="podcast-teaser">
-  <a href="<%= podcast.local_url %>"><img src="<%= podcast.art_url('medium') %>" /></a>
-  <h2 class="podcast-title"><a href="<%= podcast.local_url %>"><%= podcast.title %></a></h2>
-  <div class="podcast-body"><%= podcast.description %></div>
+  <h2 class="podcast-title"><a href="<%= stream.url %>"><%= stream.title %></a></h2>
 </div>
 <% end %>
 </div>
