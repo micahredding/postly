@@ -9,6 +9,7 @@ require 'pry'
 require_relative 'helpers'
 require_relative 'stream'
 require_relative 'post'
+require_relative 'mappers'
 require_relative 'controllers'
 
 get '/posts/:post_id' do
