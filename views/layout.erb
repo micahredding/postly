@@ -38,14 +38,14 @@
       'http://micahredding.com/curve'
     end
     %>"><i class="fa fa-envelope-o"></i> Essays by email</a></li>
-    <% if @stream %><li><a href="/<%= @stream.url %>.rss"><i class="fa fa-rss"></i> RSS feed</a></li><% end %>
+    <% if @stream %><li><a href="/<%= StreamController.rss_url_for(@stream.stream_id) %>"><i class="fa fa-rss"></i> RSS feed</a></li><% end %>
     <li><a href="http://twitter.com/?status=<%=
       if @post
         message = @post.title
-        url = @post.url
+        url = PostController.url_for(@post.post_id)
       elsif @stream
         message = @stream.title
-        url = @stream.url
+        url = StreamController.url_for(@stream.stream_id)
       else
         message = 'Streams of thought by Micah Redding'
         url = ''
