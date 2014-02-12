@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%=
-    if @post
-      @post.title
-    elsif @stream
-      @stream.title
-    else
-      'Streams of thought by Micah Redding'
-    end
-  %></title>
+  <%= yield_content :title do %>
+    <title>Micah's Postly</title>
+  <% end %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/ico" href="/favicon.ico" />
   <link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -31,6 +25,7 @@
     <%= yield %>
   </div>
   <div class="footer-links"><ul class="footer-links-inner">
+    <%= yield_content :footer %>
     <li><a href="<%=
     if @stream && @stream.subscribe
       @stream.subscribe
@@ -38,7 +33,9 @@
       'http://micahredding.com/curve'
     end
     %>"><i class="fa fa-envelope-o"></i> Essays by email</a></li>
-    <% if @stream %><li><a href="/<%= StreamController.rss_url_for(@stream.stream_id) %>"><i class="fa fa-rss"></i> RSS feed</a></li><% end %>
+    <% if @stream %>
+      <li><a href="/<%= StreamController.rss_url_for(@stream.stream_id) %>"><i class="fa fa-rss"></i> RSS feed</a></li>
+    <% end %>
     <li><a href="http://twitter.com/?status=<%=
       if @post
         message = @post.title

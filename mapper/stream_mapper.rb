@@ -1,17 +1,3 @@
-class PostMapper
-  include PostlyHelpers
-
-	def self.filename post_id, format="md"
-    'data/posts/' + post_id + '.' + format
-  end
-
-	def self.load post_id
-    file_contents = File.read self.filename(post_id)
-    title = Nokogiri::HTML(file_contents).css('h2').text || post_id
-    Post.new(post_id, title, file_contents)
-	end
-end
-
 class StreamMapper
 	def self.filename stream_id, format="json"
     'data/streams/' + stream_id + '.' + format
