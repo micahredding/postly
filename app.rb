@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/content_for'
+require 'sinatra/contrib/all'
 require 'json'
 require 'builder'
 require 'redcarpet'

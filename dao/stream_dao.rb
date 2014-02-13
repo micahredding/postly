@@ -5,10 +5,10 @@ class StreamDao < YamlDao
   STREAMS_PATH = "#{Postly.DATA_PATH}/streams"
 
   def get_post(id)
-    filename = "#{POSTS_PATH}/#{id}"
+    filename = "#{STREAMS_PATH}/#{id}"
     raise Sinatra::NotFound unless File.exist?(filename)
-    yaml = load_and_parse "#{POSTS_PATH}/#{id}"
-    mapper = PostMapper.new
+    yaml = load_and_parse "#{STREAMS_PATH}/#{id}"
+    mapper = StreamMapper.new
     mapper.yaml_to_record id, yaml
   end
 end
