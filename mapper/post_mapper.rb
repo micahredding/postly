@@ -14,7 +14,7 @@ end
 class PostMarkdownMapper
   def markdown_to_record(id, md)
     post = Post.new(id)
-    # post.title = id
+    post.title = md.lines.first.chomp.delete('#').strip || id
     post.body = md
     post
   end
