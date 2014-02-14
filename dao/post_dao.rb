@@ -5,8 +5,9 @@ class PostDao < YamlDao
   POSTS_PATH = "#{Postly::DATA_PATH}/posts"
 
   def get_post(id)
-    filename = "#{POSTS_PATH}/#{id}.yml"
-    raise Sinatra::NotFound unless File.exist?(filename)
+    filename = "http://stream.micahredding.com/#{id}.yml"
+    puts filename
+    # raise Sinatra::NotFound unless File.exist?(filename)
     yaml = load_and_parse filename
     mapper = PostMapper.new
     mapper.yaml_to_record id, yaml
