@@ -3,10 +3,10 @@ require "#{Postly::MAPPER_PATH}/post_mapper"
 
 class PostDao < YamlDao
   POSTS_PATH = "#{Postly::DATA_PATH}/posts"
+  POSTS_PATH = "http://resources.brickcaster.com/micah/posts"
 
   def get_post(id)
-    filename = "http://stream.micahredding.com/#{id}.yml"
-    puts filename
+    filename = "#{POSTS_PATH}/#{id}.yml"
     # raise Sinatra::NotFound unless File.exist?(filename)
     yaml = load_and_parse filename
     mapper = PostMapper.new
