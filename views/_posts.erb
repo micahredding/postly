@@ -1,5 +1,5 @@
 <% @stream_presenter.posts.each do |post| %>
-<article class="post" id="<%= post.id %>" data-url="/posts/<%= post.id %>">
+<article class="post" id="<%= post.id %>" data-url="<%= post.path %>">
   <%= post.content %>
 </article>
 <% end %>

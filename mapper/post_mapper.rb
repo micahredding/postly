@@ -1,4 +1,5 @@
 require "#{Postly::MODEL_PATH}/post"
+require "#{Postly::LIB_PATH}/markdown_compiler"
 
 class PostMapper
   def yaml_to_record(id, yaml)
@@ -9,3 +10,11 @@ class PostMapper
   end
 end
 
+class PostMarkdownMapper
+  def markdown_to_record(id, md)
+    post = Post.new(id)
+    # post.title = id
+    post.body = md
+    post
+  end
+end

@@ -22,7 +22,7 @@ class PostlyRoutes < Sinatra::Base
   helpers PostlyViewHelpers
 
   get '/posts/:id' do
-    dao = PostDao.new
+    dao = PostMarkdownDao.new
     post = dao.get_post params[:id]
     @post_presenter = PostPresenter.new post
     erb :post
@@ -31,7 +31,7 @@ class PostlyRoutes < Sinatra::Base
   get '/streams/:id.?:format?' do
     dao = StreamDao.new
     stream = dao.get_stream params[:id]
-    dao = PostDao.new
+    dao = PostMarkdownDao.new
     posts = dao.get_posts_from_list(stream.post_ids)
     @stream_presenter = StreamPresenter.new stream, posts
     case params[:format]

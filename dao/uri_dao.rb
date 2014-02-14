@@ -1,9 +1,9 @@
 require 'open-uri'
 
-class TextDao
+class MarkdownDao
   def load_and_parse(filename)
   	open(filename) do |f|
-	    f
+	    f.read
 	  end
   end
 end

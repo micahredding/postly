@@ -1,4 +1,5 @@
 require "#{Postly::LIB_PATH}/markdown_compiler"
+require 'nokogiri'
 
 class PostPresenter
   NAMESPACE = "/posts"
@@ -12,7 +13,11 @@ class PostPresenter
   end
 
   def title
-    @post.title
+    @post.title || parsed_title
+  end
+
+  def parsed_title
+    @parsed_title ||= Nokogiri::HTML(content).css('h2')[0].text || id
   end
 
   def content
@@ -28,7 +33,7 @@ class PostPresenter
   end
 
   def twitter_status
-    @post.title
+    title
   end
 
 end
