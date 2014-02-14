@@ -1,5 +1,12 @@
+<% content_for :title do %>
+  <title><%= @stream_presenter.title %></title>
+<% end %>
+<% content_for :footer do %>
+  <li><a href="<%= @stream_presenter.subscribe %>"><i class="fa fa-envelope-o"></i> Essays by email</a></li>
+  <li><a href="<%= base_url + @stream_presenter.rss_path %>"><i class="fa fa-rss"></i> RSS feed</a></li>
+<% end %>
 <h1 class="stream-title">
-  <%= @stream.title %>
+  <%= @stream_presenter.title %>
 </h1>
 
 <div class="stream-posts">

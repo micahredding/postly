@@ -1,4 +1,4 @@
-require "#{Postly.MODEL_PATH}/stream"
+require "#{Postly::MODEL_PATH}/stream"
 
 class StreamMapper
   def yaml_to_record(id, yaml)

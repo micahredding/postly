@@ -18,7 +18,7 @@ class MarkdownCompiler
 
   def initialize
     @markdown = Redcarpet::Markdown.new(
-      HTMLwithEmbeds.new(:link_attributes => Hash["target" => "_blank"]),
+      HTMLWithEmbeds.new(:link_attributes => Hash["target" => "_blank"]),
       :hard_wrap => true,
       :autolink => true,
       :space_after_headers => true

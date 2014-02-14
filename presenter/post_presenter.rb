@@ -1,10 +1,14 @@
-require "#{Postly.LIB_PATH}/markdown_compiler"
+require "#{Postly::LIB_PATH}/markdown_compiler"
 
 class PostPresenter
   NAMESPACE = "/posts"
 
   def initialize(post)
     @post = post
+  end
+
+  def id
+    @post.id
   end
 
   def title
@@ -22,4 +26,9 @@ class PostPresenter
   def markdown_compiler
     @markdown_compiler ||= MarkdownCompiler.new()
   end
+
+  def twitter_status
+    @post.title
+  end
+
 end

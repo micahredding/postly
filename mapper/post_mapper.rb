@@ -1,4 +1,4 @@
-require "#{Postly.MODEL_PATH}/post"
+require "#{Postly::MODEL_PATH}/post"
 
 class PostMapper
   def yaml_to_record(id, yaml)
