@@ -1,3 +1,4 @@
+require 'nokogiri'
 require "#{Postly::MODEL_PATH}/post"
 require "#{Postly::LIB_PATH}/markdown_compiler"
 

@@ -2,10 +2,9 @@ require 'yaml'
 require 'open-uri'
 require "#{Postly::DAO_PATH}/uri_dao"
 
-class YamlDao
+class YamlDao < UriDao
   def load_and_parse(filename)
-  	open(filename) do |f|
-	    YAML.load(f)
-	  end
+    f = super filename
+    YAML.load(f)
   end
 end
