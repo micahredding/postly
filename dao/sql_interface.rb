@@ -18,7 +18,6 @@ class SQLInterface
 end
 
 class StreamSQLInterface < SQLInterface
-
   def import_to_database(streams)
     streams.each do |stream|
       stream_row = [stream.id, stream.title, stream.subscribe, stream.post_ids.join(",")]
@@ -32,5 +31,23 @@ class PostSQLInterface < SQLInterface
     posts.each do |post|
       @db.execute("INSERT INTO posts VALUES (:id, :title, :body)", [post.id, post.title, post.body])
     end
+  end
+end
+
+class PostTranslator
+  def import
+    source = PostYamlDao.new
+    destination = PostSQLInterface.new
+    posts = source.index
+    destination.import_to_database posts
+  end
+end
+
+class StreamTranslator
+  def import
+    source = StreamYamlDao.new
+    destination = StreamSQLInterface.new
+    streams = source.index
+    destination.import_to_database streams
   end
 end

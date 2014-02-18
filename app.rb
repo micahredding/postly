@@ -22,17 +22,12 @@ class PostlyRoutes < Sinatra::Base
   helpers PostlyViewHelpers
 
   sql_interface = SQLInterface.new
-  post_interface = PostSQLInterface.new
-  stream_interface = StreamSQLInterface.new
-
-  post_yaml_dao = PostYamlDao.new
-  stream_yaml_dao = StreamYamlDao.new
-  posts = post_yaml_dao.get_posts_from_list ['test', 'test2', 'test3']
-  streams = stream_yaml_dao.get_streams_from_list ['test', 'test2', 'test3']
-
   sql_interface.setup_database
-  post_interface.import_to_database posts
-  stream_interface.import_to_database streams
+
+  post_translator = PostTranslator.new
+  stream_translator = StreamTranslator.new
+  post_translator.import
+  stream_translator.import
 
   get '/posts/:id' do
     dao = PostSQLDao.new

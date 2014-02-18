@@ -14,6 +14,11 @@ class StreamYamlDao < YamlDao
       get_stream id
     end
   end
+
+  def index
+    parsed_contents = load_and_parse 'streams/index.yml'
+    get_streams_from_list parsed_contents['index']
+  end
 end
 
 class StreamSQLDao < SQLDao

@@ -14,6 +14,11 @@ class PostYamlDao < YamlDao
       get_post id
     end
   end
+
+  def index
+    parsed_contents = load_and_parse 'posts/index.yml'
+    get_posts_from_list parsed_contents['index']
+  end
 end
 
 class PostSQLDao < SQLDao

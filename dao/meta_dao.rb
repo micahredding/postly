@@ -27,6 +27,17 @@ class RemoteDao
   end
 end
 
+class SQLDao < SQLInterface
+  def initialize
+    connect_to_database
+  end
+  def load_and_parse(id, table)
+    @db.execute("select * from #{table} where id = ?", id) do |row|
+      return row
+    end
+  end
+end
+
 class YamlDao < RemoteDao
   def load_and_parse(filename)
     f = load filename
@@ -40,14 +51,3 @@ class MarkdownDao < RemoteDao
   end
 end
 
-class SQLDao < SQLInterface
-  def initialize
-    connect_to_database
-  end
-
-  def load_and_parse(id, table)
-    @db.execute("select * from #{table} where id = ?", id) do |row|
-      return row
-    end
-  end
-end
