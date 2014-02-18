@@ -8,5 +8,13 @@ class StreamMapper
     stream.post_ids = yaml['posts']
     stream
   end
+
+  def row_to_record(id, row)
+    stream = Stream.new(id)
+    stream.title = row[1]
+    stream.subscribe = row[2]
+    stream.post_ids = row[3].split(",")
+    stream
+  end
 end
 

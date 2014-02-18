@@ -9,13 +9,18 @@ class PostMapper
     post.body = yaml['body']
     post
   end
-end
 
-class PostMarkdownMapper
   def markdown_to_record(id, md)
     post = Post.new(id)
     post.title = md.lines.first.chomp.delete('#').strip || id
     post.body = md
+    post
+  end
+
+  def row_to_record(id, row)
+    post = Post.new(id)
+    post.title = row[1]
+    post.body = row[2]
     post
   end
 end
