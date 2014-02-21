@@ -1,11 +1,22 @@
 module PostlyViewHelpers
 
 	def base_url
-		request.scheme + '://' + request.host
+		return "#{request.scheme}://#{request.host}:#{request.port}" if request.port != 80
+    "#{request.scheme}://#{request.host}"
 	end
 
+  def twitter_url(presenter)
+    return base_url if presenter.nil?
+    base_url + presenter.path
+  end
+
+  def twitter_status_from_presenter(presenter)
+    return Postly::SITE_NAME if presenter.nil?
+    presenter.twitter_status
+  end
+
 	def twitter_status(presenter)
-		presenter.twitter_status + ' ' + base_url + presenter.path + ' ' + Postly::USER_TWITTER_HANDLE
+		 twitter_status_from_presenter(presenter) + ' ' + twitter_url(presenter) + ' via @' + Postly::USER_TWITTER_HANDLE
 	end
 
 	def encoded_twitter_status(presenter)

@@ -3,6 +3,12 @@ require "#{Postly::LIB_PATH}/markdown_compiler"
 class StreamPresenter
   NAMESPACE = "/streams"
 
+  def self.new_list streams
+    streams.collect do |stream|
+      StreamPresenter.new stream
+    end
+  end
+
   def initialize(stream, posts=nil)
     @stream = stream
     @posts = posts

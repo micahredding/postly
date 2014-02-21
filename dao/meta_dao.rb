@@ -36,6 +36,13 @@ class SQLDao < SQLInterface
       return row
     end
   end
+  def index(table)
+    rows = []
+    @db.execute("select * from #{table}") do |row|
+      rows << row
+    end
+    rows
+  end
 end
 
 class YamlDao < RemoteDao

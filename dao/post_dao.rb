@@ -8,13 +8,11 @@ class PostYamlDao < YamlDao
     mapper = PostMapper.new
     mapper.yaml_to_record id, yaml
   end
-
   def get_posts_from_list(list)
     list.collect do |id|
       get_post id
     end
   end
-
   def index
     parsed_contents = load_and_parse 'posts/index.yml'
     get_posts_from_list parsed_contents['index']
@@ -22,6 +20,7 @@ class PostYamlDao < YamlDao
 end
 
 class PostSQLDao < SQLDao
+
   def get_post(id)
     row = load_and_parse id, 'posts'
     raise Sinatra::NotFound unless row.respond_to?(:to_ary)
@@ -34,6 +33,15 @@ class PostSQLDao < SQLDao
       get_post id
     end
   end
+
+  def index
+    posts = super 'posts'
+    mapper = PostMapper.new
+    posts.collect do |row|
+      mapper.row_to_record row[0], row
+    end
+  end
+
 end
 
 class PostMarkdownDao < MarkdownDao

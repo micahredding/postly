@@ -22,6 +22,7 @@ class StreamYamlDao < YamlDao
 end
 
 class StreamSQLDao < SQLDao
+
   def get_stream(id)
     row = load_and_parse id, 'streams'
     raise Sinatra::NotFound unless row.respond_to?(:to_ary)
@@ -34,4 +35,13 @@ class StreamSQLDao < SQLDao
       get_stream id
     end
   end
+
+  def index
+    posts = super 'posts'
+    mapper = PostMapper.new
+    posts.collect do |row|
+      mapper.row_to_record row[0], row
+    end
+  end
+
 end

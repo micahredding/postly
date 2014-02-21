@@ -50,11 +50,12 @@ class PostlyRoutes < Sinatra::Base
     end
   end
 
-  # get '/' do
-  #   dao = StreamDao.new
-  #   @streams = dao.get_all
-  #   erb :index
-  # end
+  get '/' do
+    dao = StreamSQLDao.new
+    @streams = dao.index
+    @streams_presenter = StreamPresenter.new_list @streams
+    erb :index
+  end
 
   not_found do
     "Could not find that"

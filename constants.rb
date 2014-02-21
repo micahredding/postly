@@ -5,5 +5,6 @@ module Postly
   MAPPER_PATH = "#{APPLICATION_PATH}/mapper"
   MODEL_PATH = "#{APPLICATION_PATH}/model"
   LIB_PATH = "#{APPLICATION_PATH}/lib"
-  USER_TWITTER_HANDLE = '@micahtredding'
+  USER_TWITTER_HANDLE = 'micahtredding'
+  SITE_NAME = 'Micah Redding'
 end
