@@ -1,3 +1,5 @@
+require 'redcarpet'
+
 class MarkdownCompiler
   class HTMLWithEmbeds < Redcarpet::Render::HTML
     def header(text, level)

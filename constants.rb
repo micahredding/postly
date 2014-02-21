@@ -6,5 +6,6 @@ module Postly
   MODEL_PATH = "#{APPLICATION_PATH}/model"
   LIB_PATH = "#{APPLICATION_PATH}/lib"
   USER_TWITTER_HANDLE = 'micahtredding'
+  USER_FB_HANDLE = 'micahredding'
   SITE_NAME = 'Micah Redding'
 end
