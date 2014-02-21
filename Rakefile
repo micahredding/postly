@@ -1,4 +1,4 @@
-require "constants"
+require "./constants"
 require "#{Postly::DAO_PATH}/post_dao"
 require "#{Postly::DAO_PATH}/stream_dao"
 require "#{Postly::DAO_PATH}/filesystem/translator"
