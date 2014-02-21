@@ -4,6 +4,7 @@ require "#{Postly::MAPPER_PATH}/post_mapper"
 class PostYamlDao < YamlDao
   def get_post(id)
     filename = "posts/#{id}.yml"
+    puts filename
     yaml = load_and_parse filename
     mapper = PostMapper.new
     mapper.yaml_to_record id, yaml
@@ -31,5 +32,11 @@ class PostMarkdownDao < MarkdownDao
     list.collect do |id|
       get_post id
     end
+  end
+
+  def index
+    dao = YamlDao.new
+    parsed_contents = dao.load_and_parse 'posts/index.yml'
+    get_posts_from_list parsed_contents['index']
   end
 end

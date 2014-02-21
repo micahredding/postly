@@ -15,12 +15,16 @@ end
 
 class RemoteDao
   def prefix
-    "http://resources.brickcaster.com/micah"
+    Postly::REMOTE_DATA_PATH
   end
   def load(filename)
     filename = "#{prefix}/#{filename}"
-    open(filename) do |f|
-      f.read
+    begin
+      open(filename) do |f|
+        f.read
+      end
+    rescue
+      raise Sinatra::NotFound
     end
   end
 end

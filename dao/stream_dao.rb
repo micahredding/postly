@@ -17,9 +17,9 @@ class StreamSQLDao < SQLDao
   end
 
   def index
-    posts = super 'posts'
-    mapper = PostMapper.new
-    posts.collect do |row|
+    streams = super 'streams'
+    mapper = StreamMapper.new
+    streams.collect do |row|
       mapper.row_to_record row[0], row
     end
   end
