@@ -1,9 +1,9 @@
-require 'constants'
-require '#{Postly::DAO_PATH}/post_dao'
-require '#{Postly::DAO_PATH}/stream_dao'
-require '#{Postly::DAO_PATH}/filesystem/translator'
-require '#{Postly::DAO_PATH}/filesystem/post_dao'
-require '#{Postly::DAO_PATH}/filesystem/stream_dao'
+require "constants"
+require "#{Postly::DAO_PATH}/post_dao"
+require "#{Postly::DAO_PATH}/stream_dao"
+require "#{Postly::DAO_PATH}/filesystem/translator"
+require "#{Postly::DAO_PATH}/filesystem/post_dao"
+require "#{Postly::DAO_PATH}/filesystem/stream_dao"
 require "#{Postly::LIB_PATH}/markdown_compiler"
 
 namespace :postly do
