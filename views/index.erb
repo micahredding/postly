@@ -1,7 +1,7 @@
 <div class="podcast-index-wrapper">
-<% @streams.each do |stream| %>
+<% @streams_presenter.each do |stream_presenter| %>
 <div class="podcast-teaser">
-  <h2 class="podcast-title"><a href="<%= StreamController.url_for(stream.stream_id) %>"><%= stream.title %></a></h2>
+  <h2 class="podcast-title"><a href="<%= stream_presenter.path %>"><%= stream_presenter.title %></a></h2>
 </div>
 <% end %>
 </div>

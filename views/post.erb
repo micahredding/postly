@@ -1,3 +1,9 @@
+<% content_for :title do %>
+  <title><%= @post_presenter.title %></title>
+<% end %>
+<% content_for :footer do %>
+  <li><a href="http://micahredding.com/curve"><i class="fa fa-envelope-o"></i> Essays by email</a></li>
+<% end %>
 <article class="post">
-  <%= @post.content %>
+  <%= @post_presenter.content %>
 </article>

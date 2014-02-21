@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%=
-    if @post
-      @post.title
-    elsif @stream
-      @stream.title
-    else
-      'Streams of thought by Micah Redding'
-    end
-  %></title>
+  <%= yield_content :title %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/ico" href="/favicon.ico" />
   <link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -19,44 +11,28 @@
 <body>
   <header>
     <span class="site-name">
-      <a href="http://stream.micahredding.com/thoughts-and-reads">Micah Redding<span></span></a>
+      <a href="<%= base_url %>"><%= Postly::SITE_NAME %><span></span></a>
     </span>
     <span class="connect">
-      <a href="http://twitter.com/micahtredding"><i class="fa fa-twitter"></i><span>/micahtredding</span></a>
-      <a href="http://facebook.com/micahredding"><i class="fa fa-facebook"></i><span>/micahredding</span></a>
+      <a href="http://twitter.com/<%= Postly::USER_TWITTER_HANDLE %>"><i class="fa fa-twitter"></i><span>/<%= Postly::USER_TWITTER_HANDLE %></span></a>
+      <a href="http://facebook.com/<%= Postly::USER_FB_HANDLE %>"><i class="fa fa-facebook"></i><span>/<%= Postly::USER_FB_HANDLE %></span></a>
       <a href="https://plus.google.com/+MicahRedding" rel="publisher"><i class="fa fa-google-plus"></i><span>/+micahredding</span></a>
     </span>
   </header>
   <div class="page">
     <%= yield %>
   </div>
-  <div class="footer-links"><ul class="footer-links-inner">
-    <li><a href="<%=
-    if @stream && @stream.subscribe
-      @stream.subscribe
-    else
-      'http://micahredding.com/curve'
-    end
-    %>"><i class="fa fa-envelope-o"></i> Essays by email</a></li>
-    <% if @stream %><li><a href="/<%= StreamController.rss_url_for(@stream.stream_id) %>"><i class="fa fa-rss"></i> RSS feed</a></li><% end %>
-    <li><a href="http://twitter.com/?status=<%=
-      if @post
-        message = @post.title
-        url = PostController.url_for(@post.post_id)
-      elsif @stream
-        message = @stream.title
-        url = StreamController.url_for(@stream.stream_id)
-      else
-        message = 'Streams of thought by Micah Redding'
-        url = ''
-      end
-      status = '“' + message + '” ' + request.scheme + '://' + request.host + '/' + url + ' via @micahtredding'
-      URI.encode(status)
-    %>"><i class="fa fa-twitter"></i> Tweet this</a></li>
-    <li class="fb-like" data-href="<%= request.url %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></li>
-  </ul></div>
-
-
+  <div class="footer-links">
+    <ul class="footer-links-inner">
+      <%= yield_content :footer %>
+      <li>
+        <a href="http://twitter.com/?status=<%= encoded_twitter_status(@post_presenter || @stream_presenter) %>">
+          <i class="fa fa-twitter"></i> Tweet this
+        </a>
+      </li>
+      <li class="fb-like" data-href="<%= request.url %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></li>
+    </ul>
+  </div>
   <script type="text/javascript" src="/assets/bower_components/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="/assets/bower_components/fitvids/jquery.fitvids.js"></script>
   <script type="text/javascript" src="/assets/js/audioplayer.min.js"></script>

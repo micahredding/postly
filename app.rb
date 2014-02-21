@@ -1,4 +1,6 @@
 require 'sinatra'
+require 'sinatra/base'
+require 'sinatra/content_for'
 require 'json'
 require 'builder'
 require 'redcarpet'
@@ -6,31 +8,49 @@ require 'nokogiri'
 require 'uri'
 require 'pry'
 
+require_relative 'constants'
 require_relative 'helpers'
-require_relative 'stream'
-require_relative 'post'
-require_relative 'mappers'
-require_relative 'controllers'
+require_relative 'model/post'
+require_relative 'model/stream'
+require_relative 'dao/post_dao'
+require_relative 'dao/stream_dao'
+require_relative 'presenter/post_presenter'
+require_relative 'presenter/stream_presenter'
 
-get '/posts/:post_id' do
-  @post = PostController.load(params[:post_id])
-  redirect '/' if @post.nil?
-	erb :post
-end
+class PostlyRoutes < Sinatra::Base
+  helpers Sinatra::ContentFor
+  helpers PostlyViewHelpers
 
-get '/:stream_id.rss' do
-  @stream = StreamController.load(params[:stream_id])
-  redirect '/' if @stream.nil?
-	builder :stream_rss
-end
+  get '/posts/:id' do
+    dao = PostSQLDao.new
+    post = dao.get_post params[:id]
+    @post_presenter = PostPresenter.new post
+    erb :post
+  end
 
-get '/:stream_id' do
-  @stream = StreamController.load(params[:stream_id])
-  redirect '/' if @stream.nil?
-	erb :stream
-end
+  get '/:id.?:format?' do
+    dao = StreamSQLDao.new
+    stream = dao.get_stream params[:id]
+    dao = PostSQLDao.new
+    posts = dao.get_posts_from_list(stream.post_ids)
+    @stream_presenter = StreamPresenter.new stream, posts
+    case params[:format]
+      when "rss"
+        builder :stream
+      else
+        erb :stream
+    end
+  end
 
-get '/' do
-  @streams = StreamController.index
-  erb :index
+  get '/' do
+    dao = StreamSQLDao.new
+    @streams = dao.index
+    @streams_presenter = StreamPresenter.new_list @streams
+    erb :index
+  end
+
+  not_found do
+    "Could not find that"
+  end
+
 end

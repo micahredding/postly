@@ -1,5 +1,5 @@
-<% @stream.posts.reverse.each do |post| %>
-<article class="post" id="<%= post.post_id %>" data-url="/posts/<%= post.post_id %>">
+<% @stream_presenter.posts.each do |post| %>
+<article class="post" id="<%= post.id %>" data-url="<%= post.path %>">
   <%= post.content %>
 </article>
 <% end %>

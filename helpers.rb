@@ -1,27 +1,31 @@
-module PostlyHelpers
-  class HTMLwithEmbeds < Redcarpet::Render::HTML
-    def header(text, level)
-      level += 1
-      "<h#{level}>#{text}</h#{level}>"
-    end
-    def autolink(link, link_type)
-      regex = /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?(\w{10,})/
-      matches = link.match(regex)
-      if matches
-        '<iframe width="640" height="360" src="//www.youtube.com/embed/' + matches[1] + '?rel=0" frameborder="0" allowfullscreen></iframe>'
-      else
-        '<a href="' + link + '">' + link + '</a>'
-      end
-    end
+module PostlyViewHelpers
+
+	def base_url
+		return "#{request.scheme}://#{request.host}:#{request.port}" if request.port != 80
+    "#{request.scheme}://#{request.host}"
+	end
+
+  def twitter_url(presenter)
+    return base_url if presenter.nil?
+    base_url + presenter.path
   end
 
-  def markdown
-  	@markdown ||= Redcarpet::Markdown.new(
-      HTMLwithEmbeds.new(:link_attributes => Hash["target" => "_blank"]),
-      :hard_wrap => true,
-      :autolink => true,
-      :space_after_headers => true
-    )
+  def wrap_with_quotes(text)
+    "\"#{text}\""
   end
+
+  def twitter_status_from_presenter(presenter)
+    return Postly::SITE_NAME if presenter.nil?
+    return wrap_with_quotes(presenter.twitter_status) if Postly::WRAP_TITLE_WITH_QUOTES
+    presenter.twitter_status
+  end
+
+	def twitter_status(presenter)
+		 twitter_status_from_presenter(presenter) + ' ' + twitter_url(presenter) + ' via @' + Postly::USER_TWITTER_HANDLE
+	end
+
+	def encoded_twitter_status(presenter)
+		URI.encode(twitter_status(presenter))
+	end
 
 end

@@ -4,3 +4,4 @@ production:
   deploy_to: "/var/www/postly/"
   repository: "git@github.com:micahredding/postly.git"
   branch: "master"
+  post_deploy_script: 'bin/post_deploy_script.sh'
