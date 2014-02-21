@@ -28,7 +28,7 @@ class PostlyRoutes < Sinatra::Base
     erb :post
   end
 
-  get '/streams/:id.?:format?' do
+  get '/:id.?:format?' do
     dao = StreamSQLDao.new
     stream = dao.get_stream params[:id]
     dao = PostSQLDao.new
