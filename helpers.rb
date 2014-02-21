@@ -10,8 +10,13 @@ module PostlyViewHelpers
     base_url + presenter.path
   end
 
+  def wrap_with_quotes(text)
+    "\"#{text}\""
+  end
+
   def twitter_status_from_presenter(presenter)
     return Postly::SITE_NAME if presenter.nil?
+    return wrap_with_quotes(presenter.twitter_status) if Postly::WRAP_TITLE_WITH_QUOTES
     presenter.twitter_status
   end
 

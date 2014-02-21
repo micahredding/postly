@@ -9,4 +9,5 @@ module Postly
   USER_TWITTER_HANDLE = 'micahtredding'
   USER_FB_HANDLE = 'micahredding'
   SITE_NAME = 'Micah Redding'
+  WRAP_TITLE_WITH_QUOTES = true
 end
