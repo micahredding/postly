@@ -2,7 +2,7 @@ require 'redcarpet'
 
 class MarkdownCompiler
   class HTMLWithEmbeds < Redcarpet::Render::HTML
-    def header(text, level)
+    def header(text, level, anchor)
       level += 1
       "<h#{level}>#{text}</h#{level}>"
     end
