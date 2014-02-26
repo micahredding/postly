@@ -28,7 +28,15 @@ class PostlyRoutes < Sinatra::Base
     erb :post
   end
 
+  get '/streams' do
+    dao = StreamSQLDao.new
+    @streams = dao.index
+    @streams_presenter = StreamPresenter.new_list @streams
+    erb :index
+  end
+
   get '/:id.?:format?' do
+    pass if params[:id] == 'blog'
     dao = StreamSQLDao.new
     stream = dao.get_stream params[:id]
     dao = PostSQLDao.new
@@ -40,13 +48,6 @@ class PostlyRoutes < Sinatra::Base
       else
         erb :stream
     end
-  end
-
-  get '/' do
-    dao = StreamSQLDao.new
-    @streams = dao.index
-    @streams_presenter = StreamPresenter.new_list @streams
-    erb :index
   end
 
   not_found do
