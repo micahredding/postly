@@ -3,6 +3,7 @@ module Postly
   DATA_PATH = "#{APPLICATION_PATH}/data"
   REMOTE_DATA_PATH = "http://resources.brickcaster.com/micah"
   DAO_PATH = "#{APPLICATION_PATH}/dao"
+  TRANSLATOR_PATH = "#{APPLICATION_PATH}/translator"
   MAPPER_PATH = "#{APPLICATION_PATH}/mapper"
   MODEL_PATH = "#{APPLICATION_PATH}/model"
   LIB_PATH = "#{APPLICATION_PATH}/lib"

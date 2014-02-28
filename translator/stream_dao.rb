@@ -1,4 +1,4 @@
-require "#{Postly::DAO_PATH}/meta_dao"
+require "#{Postly::TRANSLATOR_PATH}/meta_dao"
 require "#{Postly::MAPPER_PATH}/stream_mapper"
 
 class StreamYamlDao < YamlDao
