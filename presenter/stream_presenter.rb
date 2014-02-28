@@ -1,8 +1,8 @@
 require "#{Postly::LIB_PATH}/markdown_compiler"
 
 class StreamPresenter
-  # NAMESPACE = "/streams"
-  NAMESPACE = ""
+  NAMESPACE = "/streams"
+  # NAMESPACE = ""
 
   def self.new_list streams
     streams.collect do |stream|
