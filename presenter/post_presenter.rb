@@ -2,7 +2,7 @@ require "#{Postly::LIB_PATH}/markdown_compiler"
 require 'nokogiri'
 
 class PostPresenter
-  NAMESPACE = "/posts"
+  NAMESPACE = Postly::POSTS_NAMESPACE
 
   def initialize(post)
     @post = post

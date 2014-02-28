@@ -11,4 +11,6 @@ module Postly
   USER_FB_HANDLE = 'micahredding'
   SITE_NAME = 'Micah Redding'
   WRAP_TITLE_WITH_QUOTES = true
+  STREAMS_NAMESPACE = '/streams'
+  POSTS_NAMESPACE = '/posts'
 end
