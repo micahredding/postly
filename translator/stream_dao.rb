@@ -18,5 +18,7 @@ class StreamYamlDao < YamlDao
   def index
     parsed_contents = load_and_parse 'streams/index.yml'
     get_streams_from_list parsed_contents['index']
+    # list = super 'streams'
+    # get_streams_from_list list
   end
 end

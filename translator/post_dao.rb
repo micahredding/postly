@@ -14,6 +14,8 @@ class PostYamlDao < YamlDao
     end
   end
   def index
+    # list = super 'posts'
+    # get_posts_from_list list
     parsed_contents = load_and_parse 'posts/index.yml'
     get_posts_from_list parsed_contents['index']
   end
@@ -26,16 +28,16 @@ class PostMarkdownDao < MarkdownDao
     mapper = PostMapper.new
     mapper.markdown_to_record id, md
   end
-
   def get_posts_from_list(list)
     list.collect do |id|
       get_post id
     end
   end
-
   def index
     dao = YamlDao.new
     parsed_contents = dao.load_and_parse 'posts/index.yml'
     get_posts_from_list parsed_contents['index']
+    # list = super 'posts'
+    # get_posts_from_list list
   end
 end

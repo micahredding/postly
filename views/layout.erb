@@ -21,6 +21,8 @@
   </header>
   <div class="page">
     <%= yield %>
+    <br />
+    Want to comment? <a href="http://twitter.com/?status=<%= encoded_twitter_status(@post_presenter || @stream_presenter) %>">Tweet me!</a>
   </div>
   <div class="footer-links">
     <ul class="footer-links-inner">
