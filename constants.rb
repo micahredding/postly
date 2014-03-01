@@ -9,6 +9,7 @@ module Postly
   LIB_PATH = "#{APPLICATION_PATH}/lib"
   USER_TWITTER_HANDLE = 'micahtredding'
   USER_FB_HANDLE = 'micahredding'
+  USER_GPLUS_HANDLE = 'MicahRedding'
   SITE_NAME = 'Micah Redding'
   WRAP_TITLE_WITH_QUOTES = true
   STREAMS_NAMESPACE = '/streams'

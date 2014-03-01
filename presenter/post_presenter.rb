@@ -4,6 +4,12 @@ require 'nokogiri'
 class PostPresenter
   NAMESPACE = Postly::POSTS_NAMESPACE
 
+  def self.new_list posts
+    posts.collect do |post|
+      PostPresenter.new post
+    end
+  end
+
   def initialize(post)
     @post = post
   end
@@ -30,6 +36,10 @@ class PostPresenter
 
   def markdown_compiler
     @markdown_compiler ||= MarkdownCompiler.new()
+  end
+
+  def posts
+    PostPresenter.new [@post]
   end
 
   def twitter_status

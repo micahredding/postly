@@ -21,11 +21,25 @@ class PostlyRoutes < Sinatra::Base
   helpers Sinatra::ContentFor
   helpers PostlyViewHelpers
 
+  get "/posts" do
+    dao = PostSQLDao.new
+    @posts = dao.index
+    @posts_list = PostPresenter.new_list @posts
+    erb :post_index
+  end
+
   get "/posts/:id" do
     dao = PostSQLDao.new
     post = dao.get_post params[:id]
     @post_presenter = PostPresenter.new post
     erb :post
+  end
+
+  get "/streams" do
+    dao = StreamSQLDao.new
+    @streams = dao.index
+    @streams_list = StreamPresenter.new_list @streams
+    erb :stream_index
   end
 
   get "#{Postly::STREAMS_NAMESPACE}/:id.?:format?" do
@@ -40,13 +54,6 @@ class PostlyRoutes < Sinatra::Base
       else
         erb :stream
     end
-  end
-
-  get "/streams" do
-    dao = StreamSQLDao.new
-    @streams = dao.index
-    @streams_presenter = StreamPresenter.new_list @streams
-    erb :index
   end
 
   not_found do

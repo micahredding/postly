@@ -10,5 +10,8 @@
 </h1>
 
 <div class="stream-posts">
-  <%= erb :_posts %>
+  <% @stream_presenter.posts.each do |post| %>
+    <% @post_presenter = post %>
+    <%= erb :_post %>
+  <% end %>
 </div>

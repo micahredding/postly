@@ -1,9 +1,12 @@
 <% content_for :title do %>
-  <title><%= @post_presenter.title %></title>
+  <title>Posts</title>
 <% end %>
 <% content_for :footer do %>
   <li><a href="http://micahredding.com/curve"><i class="fa fa-envelope-o"></i> Essays by email</a></li>
 <% end %>
 <div class="posts">
-  <%= erb :_post %>
+  <% @posts_list.each do |post| %>
+    <% @post_presenter = post %>
+    <%= erb :_post %>
+  <% end %>
 </div>
