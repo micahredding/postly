@@ -12,6 +12,6 @@ module Postly
   USER_GPLUS_HANDLE = 'MicahRedding'
   SITE_NAME = 'Micah Redding'
   WRAP_TITLE_WITH_QUOTES = true
-  STREAMS_NAMESPACE = '/streams'
+  STREAMS_NAMESPACE = ''
   POSTS_NAMESPACE = '/posts'
 end
