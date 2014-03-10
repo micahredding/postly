@@ -1,7 +1,7 @@
 module Postly
   APPLICATION_PATH = File.dirname(__FILE__)
   DATA_PATH = "#{APPLICATION_PATH}/data"
-  REMOTE_DATA_PATH = "http://resources.brickcaster.com/micah_test"
+  REMOTE_DATA_PATH = "http://resources.brickcaster.com/micah"
   DAO_PATH = "#{APPLICATION_PATH}/dao"
   TRANSLATOR_PATH = "#{APPLICATION_PATH}/translator"
   MAPPER_PATH = "#{APPLICATION_PATH}/mapper"
