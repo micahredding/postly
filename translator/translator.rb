@@ -6,7 +6,7 @@ end
 
 class PostTranslator < Translator
   def import
-    source = PostYamlDao.new
+    source = PostMarkdownDao.new
     destination = PostSQLInterface.new
     super source, destination
   end
