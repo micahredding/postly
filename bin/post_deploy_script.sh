@@ -1,1 +1,0 @@
-rake postly:prep
